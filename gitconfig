@@ -1,0 +1,26 @@
+[user]
+	email = t.mcglinn@gmail.com
+	name = Tama
+[push]
+	default = simple
+	recurseSubmodules = check
+[core]
+	editor = vim
+[alias]
+	rep = "!f() { git checkout -B $1 origin/$1; }; f"
+	lges = log --pretty=oneline --abbrev-commit
+	lgnathan = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all
+	lgs = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%<(50,mtrunc)%s%C(reset) %C(dim white)%<(12,trunc)%an%C(reset)%<(40,trunc)%C(bold yellow)%d%C(reset)' --all 
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(dim white) %an%C(reset)%C(bold yellow)%d%C(reset)%n''        %C(white)%<(114,mtrunc)%s%C(reset)' --all
+	s = status
+	su = submodule update --init --recursive
+	co = checkout
+	cob = checkout -b
+	p = "!f() { git push --set-upstream origin --recurse-submodules=check `git branch | grep "^*" | cut -d' ' -f2`; }; f"
+	pf = "!f() { git push --force-with-lease --set-upstream origin --recurse-submodules=check `git branch | grep "^*" | cut -d' ' -f2`; }; f"
+	f = fetch --tags --all
+	cp = cherry-pick --no-commit
+	cpc = cherry-pick
+	chuck = "!f() { git checkout -- . && git clean -df; }; f"
+	c = commit -m
+	ca = commit -a -m

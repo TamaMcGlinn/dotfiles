@@ -1,0 +1,25 @@
+# Show all commits, not just up to HEAD, by default when starting up tig
+set main-options = --all
+
+# Revert with 1 from main view
+bind main 1 !git revert %(commit)
+
+# Revert without committing
+bind main ! !git revert --no-commit %(commit)
+
+# Reset to highlighted commit, mixed
+bind main v !git reset --mixed %(commit)
+
+# Reset to highlighted commit, hard
+bind main V !git reset --hard %(commit)
+
+# Create new branch here
+bind main n !git checkout -b "%(prompt Enter branch name: )" %(commit)
+
+# Merge branch
+bind main M !git merge --no-ff %(branch)
+
+# Customize the man view
+set main-view	= line-number:no,interval=5 id:no date:default author:abbreviated commit-title:yes,graph,refs,overflow=no
+
+set vertical-split = no
