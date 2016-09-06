@@ -21,6 +21,9 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('xolox/vim-misc') " Required for xolox plugins
 call dein#add('xolox/vim-session')
 call dein#add('tpope/vim-unimpaired')
+call dein#add('godlygeek/tabular')
+call dein#add('sjl/gundo.vim')
+" call dein#add('simnalamburt/vim-mundo')
 
 " Required:
 call dein#end()
@@ -83,3 +86,8 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 set background=dark
+
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_prefer_python3 = 1
+" set undofile
+" set undodir=~/.vim/undo
