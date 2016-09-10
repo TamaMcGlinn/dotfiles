@@ -117,4 +117,9 @@ export PATH=$PATH:$HOME/linuxbash
 export EDITOR='nvim'
 source ~/code/tmuxinator/completion/tmuxinator.bash
 
-if [[ $TMUX ]]; then source ~/.tmux-git/tmux-git.sh; fi
+if [[ $TMUX ]]; then 
+	source ~/.tmux-git/tmux-git.sh; 
+else
+	tmux
+fi
+
