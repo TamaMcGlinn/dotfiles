@@ -63,9 +63,11 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Compact_Format = 1
 let Tlist_Close_On_Select = 1
 
+" fugitive bindings
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gb :Gblame<CR>
 
+" toggle US spelling with leader s
 set spelllang=en_us
 nmap <silent> <leader>s :set spell!<CR>
 
@@ -87,6 +89,7 @@ vmap <C-Down> ]egv
 
 set background=dark
 
+" Open an undo tree with <F5>; <F5> again to close it.
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_prefer_python3 = 1
 " set undofile
