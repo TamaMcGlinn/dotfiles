@@ -75,7 +75,12 @@ set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 
 if has("autocmd")
-	autocmd bufwritepost init.vim source $MYVIMRC
+	augroup reload_vimrc " {
+		autocmd!
+		" Every symbolic link needs to be seperately added here
+		autocmd bufwritepost vimrc source $MYVIMRC
+		autocmd bufwritepost $MYVIMRC source $MYVIMRC
+	augroup END " }
 endif
 
 nmap <Leader>v :tabedit $MYVIMRC<CR>
