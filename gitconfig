@@ -23,5 +23,6 @@
 	cpc = cherry-pick
 	chuck = "!f() { git checkout -- . && git clean -df; }; f"
 	c = commit -m
+	cm = commit --amend
 	ca = commit -a -m
 	cap = "!f() { git commit -a -m \"$1\" && git push; }; f"

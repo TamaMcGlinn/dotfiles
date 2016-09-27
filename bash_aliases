@@ -14,4 +14,3 @@ alias confbash='nvim ~/.bash_aliases'
 alias confgit='nvim ~/.gitconfig'
 alias conftmux='nvim ~/.tmux.conf'
 alias tp=trash-put
-alias evim='nvim -S ~/.vim/sessions/emp.vim'

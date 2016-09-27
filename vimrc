@@ -17,6 +17,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('fntlnz/atags.vim')
 call dein#add('vim-scripts/taglist.vim')
+call dein#add('steffanc/cscopemaps.vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('xolox/vim-misc') " Required for xolox plugins
 call dein#add('xolox/vim-session')
@@ -24,9 +25,14 @@ call dein#add('tpope/vim-unimpaired')
 call dein#add('godlygeek/tabular')
 call dein#add('sjl/gundo.vim')
 " call dein#add('simnalamburt/vim-mundo')
+" call dein#add('valloric/youcompleteme')
+call dein#add('neomake/neomake')
+call dein#add('airblade/vim-gitgutter')
 
 " Required:
 call dein#end()
+
+let dein#enable_notification = 1
 
 " Required:
 filetype plugin indent on
@@ -100,4 +106,14 @@ let g:gundo_prefer_python3 = 1
 " set undofile
 " set undodir=~/.vim/undo
 
+nnoremap <leader>m :Neomake!<CR>
 
+if has("autocmd")
+	augroup reload_vimrc " {
+		autocmd!
+		" make the current working directory always track the current file
+		autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+		augroup END " }
+endif
+
+set tabstop=2
