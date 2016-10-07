@@ -1,4 +1,4 @@
-"dein Scripts-----------------------------
+" dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -28,6 +28,8 @@ call dein#add('sjl/gundo.vim')
 " call dein#add('valloric/youcompleteme')
 call dein#add('neomake/neomake')
 call dein#add('airblade/vim-gitgutter')
+call dein#add('chrisbra/Recover.vim')
+call dein#add('nelstrom/vim-markdown-folding')
 
 " Required:
 call dein#end()
@@ -80,7 +82,11 @@ nmap <silent> <leader>s :set spell!<CR>
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
 
+" reload vimrc file on write
 if has("autocmd")
+	" when we reload this vimrc file, that would add an additional 'reload self'
+	" command to the bufwrite event, so if you kept saving your vimrc you would
+	" get an exponentially slower editor - augroup means it only does it once
 	augroup reload_vimrc " {
 		autocmd!
 		" Every symbolic link needs to be seperately added here
@@ -108,12 +114,12 @@ let g:gundo_prefer_python3 = 1
 
 nnoremap <leader>m :Neomake!<CR>
 
-if has("autocmd")
-	augroup reload_vimrc " {
-		autocmd!
-		" make the current working directory always track the current file
-		autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
-		augroup END " }
-endif
+inoremap <F2> <ESC>:wq<CR>
+nnoremap <F2> :wq<CR>
 
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=2
 set tabstop=2
