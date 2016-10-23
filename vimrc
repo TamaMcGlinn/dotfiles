@@ -117,8 +117,8 @@ nnoremap <leader>m :Neomake!<CR>
 
 inoremap <F2> <ESC>:wq<CR>
 nnoremap <F2> :wq<CR>
-inoremap <F3> <ESC>:q!<CR>
-nnoremap <F3> :q!<CR>
+inoremap <C-F2> <ESC>:q!<CR>
+nnoremap <C-F2> :q!<CR>
 nnoremap <leader><q> :SaveSession<CR>
 
 set noexpandtab
@@ -136,7 +136,7 @@ nnoremap <leader>d :nohl<CR>zz
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
   try
-    let selection = system(a:choice_command a:directory " | selecta " . a:selecta_args)
+    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
   catch /Vim:Interrupt/
     " Swallow the ^C so that the redraw below happens; otherwise there will be
     " leftovers from selecta on the screen
@@ -149,8 +149,20 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>fe :call SelectaCommand(".", "find * -type f", "", ":e")<cr>
-nnoremap <leader>fv :call SelectaCommand(".", "find * -type f", "", ":vsp")<cr>
-nnoremap <leader>fs :call SelectaCommand(".", "find * -type f", "", ":sp")<cr>
-nnoremap <leader>ft :call SelectaCommand(".", "find * -type f", "", ":tabe")<cr>
+nnoremap <leader>fe  :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\" -or -name \"*.h\"", "", ":e")<cr>
+nnoremap <leader>fv  :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\" -or -name \"*.h\"", "", ":vsp")<cr>
+nnoremap <leader>fs  :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\" -or -name \"*.h\"", "", ":sp")<cr>
+nnoremap <leader>ft  :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\" -or -name \"*.h\"", "", ":tabe")<cr>
+nnoremap <leader>fae :call SelectaCommand("ionice -c3 find * -type f", "", ":e")<cr>
+nnoremap <leader>fav :call SelectaCommand("ionice -c3 find * -type f", "", ":vsp")<cr>
+nnoremap <leader>fas :call SelectaCommand("ionice -c3 find * -type f", "", ":sp")<cr>
+nnoremap <leader>fat :call SelectaCommand("ionice -c3 find * -type f", "", ":tabe")<cr>
+nnoremap <leader>fse :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":e")<cr>
+nnoremap <leader>fsv :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":vsp")<cr>
+nnoremap <leader>fss :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":sp")<cr>
+nnoremap <leader>fst :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":tabe")<cr>
+nnoremap <leader>fhe :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":e")<cr>
+nnoremap <leader>fhv :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":vsp")<cr>
+nnoremap <leader>fhs :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":sp")<cr>
+nnoremap <leader>fht :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":tabe")<cr>
 
