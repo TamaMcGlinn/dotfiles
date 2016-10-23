@@ -7,7 +7,7 @@
 [core]
 	editor = vim
 [alias]
-	rep = "!f() { git checkout -B $1 origin/$1; }; f"
+	rep = "!f() { git checkout -B $1 origin/$1 && git submodule update --init --recursive; }; f"
 	lges = log --pretty=oneline --abbrev-commit
 	lgnathan = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all
 	lgs = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%<(50,mtrunc)%s%C(reset) %C(dim white)%<(12,trunc)%an%C(reset)%<(40,trunc)%C(bold yellow)%d%C(reset)' --all 
@@ -26,3 +26,6 @@
 	cm = commit --amend
 	ca = commit -a -m
 	cap = "!f() { git commit -a -m \"$1\" && git push; }; f"
+	# From http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command#957978
+	top = "!f() { GIT_TOP=\"${GIT_DIR%%/.git/modules/*}\"; [ \".$GIT_TOP\" != \".$GIT_DIR\" ] && cd \"$GIT_TOP\"; exec \"$@\"; }; f"
+	exec = "!exec "

@@ -14,6 +14,8 @@ call dein#begin('/home/carmen/dein')
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('nacitar/a.vim')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('fntlnz/atags.vim')
 call dein#add('vim-scripts/taglist.vim')
@@ -24,12 +26,11 @@ call dein#add('xolox/vim-session')
 call dein#add('tpope/vim-unimpaired')
 call dein#add('godlygeek/tabular')
 call dein#add('sjl/gundo.vim')
-" call dein#add('simnalamburt/vim-mundo')
-" call dein#add('valloric/youcompleteme')
 call dein#add('neomake/neomake')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('chrisbra/Recover.vim')
 call dein#add('nelstrom/vim-markdown-folding')
+call dein#add('rhysd/conflict-marker.vim')
 
 " Required:
 call dein#end()
@@ -60,13 +61,13 @@ highlight CursorLineNr ctermfg=white
 
 let mapleader = " "
 " Generate tags (fntlnz/atags) with Leader t
-map <Leader>t :call atags#generate()<cr>
+nmap <Leader>t :call atags#generate()<cr>
 " Generate tags whenever a file is being writte
 " autocmd BufWritePost * call atags#generate()
 
 " Configure TList
 let Tlist_GainFocus_On_ToggleOpen = 1
-map <Leader>q :TlistToggle<CR>
+nmap <Leader>q :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 let Tlist_Compact_Format = 1
 let Tlist_Close_On_Select = 1
@@ -116,6 +117,9 @@ nnoremap <leader>m :Neomake!<CR>
 
 inoremap <F2> <ESC>:wq<CR>
 nnoremap <F2> :wq<CR>
+inoremap <F3> <ESC>:q!<CR>
+nnoremap <F3> :q!<CR>
+nnoremap <leader><q> :SaveSession<CR>
 
 set noexpandtab
 set copyindent
@@ -123,3 +127,30 @@ set preserveindent
 set softtabstop=0
 set shiftwidth=2
 set tabstop=2
+
+:let g:session_autosave = 'no'
+
+nnoremap <leader>d :nohl<CR>zz
+
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    let selection = system(a:choice_command a:directory " | selecta " . a:selecta_args)
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>fe :call SelectaCommand(".", "find * -type f", "", ":e")<cr>
+nnoremap <leader>fv :call SelectaCommand(".", "find * -type f", "", ":vsp")<cr>
+nnoremap <leader>fs :call SelectaCommand(".", "find * -type f", "", ":sp")<cr>
+nnoremap <leader>ft :call SelectaCommand(".", "find * -type f", "", ":tabe")<cr>
+
