@@ -1,0 +1,3 @@
+#!/bin/bash
+# This shadows find, so that any program or script or alias that uses find will use this instead of the real one
+echo "Hello"

@@ -1,0 +1,2 @@
+#!/bin/sh
+git checkout -B $1 origin/$1 && git submodule update --init --recursive

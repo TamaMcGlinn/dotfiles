@@ -1,0 +1,5 @@
+if [[ $1 == "--list" ]]; then
+	ls ~/.vim/sessions | sed 's/\.vim$//'
+else
+	nvim -S ~/.vim/sessions/$1.vim
+fi

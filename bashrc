@@ -112,10 +112,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source $HOME/linuxbash/git-completion.bash
+source $HOME/dotfiles/linuxbash/git-completion.bash
 __git_complete g __git_main
 source $HOME/.bash_aliases
-export PATH=$PATH:$HOME/linuxbash
+export PATH=$PATH:$HOME/dotfiles/linuxbash
 export EDITOR='nvim'
 source ~/code/tmuxinator/completion/tmuxinator.bash
 
