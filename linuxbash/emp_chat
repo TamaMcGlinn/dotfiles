@@ -1,0 +1,10 @@
+tail -f file.txt  | (while read line; do 
+	echo $line | grep ".*([^)]*)\ [^:]*:\ .*" > /dev/null; if [ $? -eq 1 ]; then continue; fi; 
+	echo $line;
+	echo $line | grep -i "Tama\|Bob" > /dev/null; if [ $? -eq 1 ]; then continue; fi;
+	NAME=`echo $line | sed 's/.*([^)]*)\ \([^:]*\):.*/\1/'`; 
+	MSG=`echo $line | sed 's/.*([^)]*)\ [^:]*:\ \(.*\)/\1/'`;
+	echo $NAME;
+	echo $MSG;
+	notify-send "$NAME" "$MSG" --icon=dialog-information; 
+done)
