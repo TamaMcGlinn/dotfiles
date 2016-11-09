@@ -1,0 +1,16 @@
+#!/bin/bash
+DIRNAME=~/code/empires/dem
+for file in ~/.steam/steam/steamapps/common/Empires/empires/*.dem; do 
+	# http://stackoverflow.com/questions/8656525/way-to-move-files-in-bash-and-rename-copied-file-automatically-without-overwriti#8656874
+	# strip path, if any
+	fname="${file##*/}"
+	[ -f "$DIRNAME/$fname" ] && {
+    	n=1
+    	while [ -f "$DIRNAME/${fname%.*}_COPY${n}.${fname##*.}" ] ; do
+        	let n+=1
+    	done
+    	echo "mv "$file" "$DIRNAME/${fname%.*}_COPY${n}.${fname##*.}""
+    	mv "$file" "$DIRNAME/${fname%.*}_COPY${n}.${fname##*.}"
+	} || mv "$file" "$DIRNAME/"
+	echo $f; 
+done

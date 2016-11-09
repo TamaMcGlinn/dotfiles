@@ -1,0 +1,4 @@
+#!/bin/bash
+mv ~/code/empires/empires_base/mp/game ~/code/empires/empires_base/mp/Empires
+cp ~/code/empires/botrix/build/libbotrix.so ~/code/empires/empires_base/mp/Empires/empires/addons/botrix/
+cp ~/code/empires/stuff/botrix/changes/config.ini ~/code/empires/empires_base/mp/Empires/empires/addons/botrix/

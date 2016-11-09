@@ -1,2 +1,2 @@
 #!/bin/sh
-nvim `find "$@" -type f | selecta`
+nvim `ionice -c 3 find "$@" -type f | selecta`

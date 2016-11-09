@@ -29,3 +29,4 @@
 	# From http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command#957978
 	top = "!f() { GIT_TOP=\"${GIT_DIR%%/.git/modules/*}\"; [ \".$GIT_TOP\" != \".$GIT_DIR\" ] && cd \"$GIT_TOP\"; exec \"$@\"; }; f"
 	exec = "!exec "
+	rename = branch -M

@@ -110,8 +110,8 @@ set background=dark
 " Open an undo tree with <F5>; <F5> again to close it.
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_prefer_python3 = 1
-" set undofile
-" set undodir=~/.vim/undo
+set undodir=~/.vim/undo
+set undofile
 
 nnoremap <leader>m :Neomake!<CR>
 
@@ -119,7 +119,7 @@ inoremap <F2> <ESC>:wq<CR>
 nnoremap <F2> :wq<CR>
 inoremap <C-F2> <ESC>:q!<CR>
 nnoremap <C-F2> :q!<CR>
-nnoremap <leader><q> :SaveSession<CR>
+nnoremap <leader><l> :SaveSession<CR>
 
 set noexpandtab
 set copyindent
@@ -166,3 +166,7 @@ nnoremap <leader>fhv :call SelectaCommand("ionice -c3 find * -type f -name \"*.h
 nnoremap <leader>fhs :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":sp")<cr>
 nnoremap <leader>fht :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":tabe")<cr>
 
+nnoremap <leader>gr :Gread<CR>
+
+let g:neomake_verbose=3
+let g:neomake_logfile='/tmp/error.log'
