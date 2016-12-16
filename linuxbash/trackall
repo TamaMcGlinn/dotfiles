@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+git branch --remote | tr -d ' ' | sed 's_origin/__' | grep -v "^HEAD->\|^develop$\|^master$\|^release/" | xargs -n 1 git rep

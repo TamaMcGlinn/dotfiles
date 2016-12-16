@@ -5,7 +5,7 @@
 	default = simple
 	recurseSubmodules = check
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	rep = "!f() { git checkout -B $1 origin/$1 && git submodule update --init --recursive; }; f"
 	lges = log --pretty=oneline --abbrev-commit

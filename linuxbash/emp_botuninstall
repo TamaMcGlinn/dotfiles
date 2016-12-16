@@ -1,0 +1,3 @@
+#!/bin/bash
+mv ~/code/empires/empires_base/mp/Empires ~/code/empires/empires_base/mp/game
+

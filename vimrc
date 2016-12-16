@@ -31,6 +31,15 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('chrisbra/Recover.vim')
 call dein#add('nelstrom/vim-markdown-folding')
 call dein#add('rhysd/conflict-marker.vim')
+call dein#add('vim-scripts/mru.vim')
+call dein#add('tpope/vim-ragtag')
+call dein#add('jlanzarotta/bufexplorer')
+"inoremap <M-o>       <Esc>o
+"inoremap <C-j>       <Down>
+"let g:ragtag_global_maps = 1
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-repeat')
+source /usr/share/vim/vim74/macros/matchit.vim
 
 " Required:
 call dein#end()

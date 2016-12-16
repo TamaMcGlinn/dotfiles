@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+git branch -r --merged | tr -d ' ' | sed 's/origin\///' | grep -v "^HEAD->\|^develop$\|^master$\|^release/" | xargs -r -n 1 git push --delete origin && git remote prune origin && git branch --merged | tr -d ' ' | grep -v "^*\|^develop$\|^master$\|^release/" | xargs -r -n 1 git branch -d

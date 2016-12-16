@@ -1,6 +1,6 @@
 #!/bin/bash
 grep -nF "$1" ~/.bash_aliases ~/.gitconfig
-if [ -f ~/dotfiles/linuxbash/$1 ]; then
+if [ -f "~/dotfiles/linuxbash/$1" ]; then
 	echo "~/dotfiles/linuxbash/$1 :"
 	cat ~/dotfiles/linuxbash/$1
 fi

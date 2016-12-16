@@ -115,9 +115,9 @@ fi
 source $HOME/dotfiles/linuxbash/git-completion.bash
 __git_complete g __git_main
 source $HOME/.bash_aliases
-export PATH=$PATH:$HOME/dotfiles/linuxbash
+# Custom path dir
+export PATH=$PATH:$HOME/dotfiles/linuxbash:$HOME/code/buildcache
 export EDITOR='nvim'
-source ~/code/tmuxinator/completion/tmuxinator.bash
 
 if [[ $TMUX ]]; then 
 	source ~/.tmux-git/tmux-git.sh; 
@@ -125,5 +125,6 @@ else
 	tmux
 fi
 
+export CC=/usr/local/bin/gcc
 #export CC=/usr/bin/clang
 #export CXX=/usr/bin/clang++

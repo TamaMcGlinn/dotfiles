@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 DIRNAME=~/code/empires/dem
 for file in ~/.steam/steam/steamapps/common/Empires/empires/*.dem; do 
 	# http://stackoverflow.com/questions/8656525/way-to-move-files-in-bash-and-rename-copied-file-automatically-without-overwriti#8656874
