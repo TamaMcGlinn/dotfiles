@@ -1,0 +1,4 @@
+#!/bin/bash
+git clone https://github.com/andreafrancia/trash-cli.git ~/code/trash-cli
+cd ~/code/trash-cli
+sudo python setup.py install

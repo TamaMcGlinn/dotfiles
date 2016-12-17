@@ -1,0 +1,19 @@
+#!/bin/bash
+# General stuff, including the requirements to build neovim
+sudo apt-get install git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python xclip
+
+# Build NeoVim from source
+mkdir -p ~/code
+git clone https://github.com/neovim/neovim.git ~/code/neovim
+cd ~/code/neovim
+make
+sudo make install
+
+# Get dein
+~/dotfiles/custom_installers/get_dein
+
+# Get the tmux-git program, that shows the repo status in the bottom-right
+git clone git://github.com/drmad/tmux-git.git ~/.tmux-git
+
+# Get trash-put
+~/dotfiles/custom_installers/get_tp
