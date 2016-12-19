@@ -1,6 +1,3 @@
-# Show all commits, not just up to HEAD, by default when starting up tig
-set main-options = --all
-
 # Revert with 1 from main view
 bind main 1 !git revert %(commit)
 
