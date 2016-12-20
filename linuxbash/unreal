@@ -2,5 +2,5 @@
 if [ -z "$1" ]; then
 	~/code/UnrealEngine/Engine/Binaries/Linux/UE4Editor
 else
-	~/code/UnrealEngine/Engine/Binaries/Linux/UE4Editor `readlink -f $1`
+	~/code/UnrealEngine/Engine/Binaries/Linux/UE4Editor `readlink -f $1` "${@:2}"
 fi
