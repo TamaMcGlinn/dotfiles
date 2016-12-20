@@ -1,3 +1,9 @@
+# Amend last commit
+bind generic + !git commit --amend
+
+# Reset 
+bind main b !git checkout -B "%(prompt Enter branch name: )" %(commit)
+
 # Revert with 1 from main view
 bind main 1 !git revert %(commit)
 
