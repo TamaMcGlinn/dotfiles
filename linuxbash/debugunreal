@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+	~/code/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-Debug -debug
+else
+	~/code/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-Debug `readlink -f $1` "${@:2}" -debug
+fi
