@@ -1,0 +1,16 @@
+#!/bin/bash
+
+grep -nF "$1" ~/.bash_aliases
+if [ $? -eq 0 ]; then
+	nvim +`grep -nF "$1" ~/.bash_aliases | cut -d':' -f1` ~/.bash_aliases
+	exit;
+fi
+grep -nF "$1" ~/.gitconfig
+if [ $? -eq 0 ]; then
+	nvim +`grep -nF "$1" ~/.gitconfig | cut -d':' -f1` ~/.gitconfig;
+	exit;
+fi
+
+touch ~/dotfiles/linuxbash/$1
+chmod +x ~/dotfiles/linuxbash/$1
+nvim ~/dotfiles/linuxbash/$1
