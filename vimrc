@@ -176,6 +176,7 @@ nnoremap <leader>fhs :call SelectaCommand("ionice -c3 find * -type f -name \"*.h
 nnoremap <leader>fht :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":tabe")<cr>
 
 nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>b :BufExplorer<CR>
 
 let g:neomake_verbose=3
 let g:neomake_logfile='/tmp/error.log'
