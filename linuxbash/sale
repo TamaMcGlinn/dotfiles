@@ -1,2 +1,2 @@
 #!/bin/bash
-nvim ~/shared/important/modestkiwi/modestkiwi-books/accounts.txt
+nvim ~/shared/important/modestkiwi/modestkiwi-books/accounts.txt && cd ~/shared/important/modestkiwi/modestkiwi-books && git commit -a -m "sale" && git push
