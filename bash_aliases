@@ -1,13 +1,14 @@
 alias c=clear
 alias view='tree -Ld 2'
 alias g=git
+alias emp_conf='./createallprojects && ./creategameprojects'
 alias emp_make='make -f games.mak -j`nproc`'
 alias emp_play='GAME_DEBUGGER=cgdb ./hl2.sh -game empires -steam -condebug -nobreakpad -insecure'
 alias emp_serv='./srcds_run -game empires +map bottest2v9t +maxplayers 8 -nobreakpad -debug +ip 192.168.1.101'
-alias emp_src='cd ~/code/empires/empires_base/mp/src'
+alias emp_src='cd ~/code/empires/new_empires/mp/src'
 alias sc='cd ~/code/secession/Secession-game/'
-alias emp_ga='cd ~/code/empires/empires_base/mp/game'
-alias emp_scr='cd ~/code/empires/empires_base/mp/game/empires/scripts'
+alias emp_ga='cd ~/code/empires/new_empires/mp/game'
+alias emp_scr='cd ~/code/empires/new_empires/mp/game/empires/scripts'
 alias rm='echo "You should use trash-put. If you really want to permanently delete, use \\rm"; false'
 alias steam='reallysteam'
 alias mux=tmuxinator
