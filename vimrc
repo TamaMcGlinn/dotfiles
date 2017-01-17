@@ -24,6 +24,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('xolox/vim-misc') " Required for xolox plugins
 call dein#add('xolox/vim-session')
 call dein#add('tpope/vim-unimpaired')
+call dein#add('tpope/vim-abolish')
 call dein#add('godlygeek/tabular')
 call dein#add('sjl/gundo.vim')
 call dein#add('neomake/neomake')
@@ -34,6 +35,7 @@ call dein#add('rhysd/conflict-marker.vim')
 call dein#add('vim-scripts/mru.vim')
 call dein#add('tpope/vim-ragtag')
 call dein#add('jlanzarotta/bufexplorer')
+call dein#add('sjl/gundo.vim')
 "inoremap <M-o>       <Esc>o
 "inoremap <C-j>       <Down>
 "let g:ragtag_global_maps = 1
