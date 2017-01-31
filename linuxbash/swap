@@ -1,0 +1,4 @@
+#!/bin/bash
+cp $1 tempfilenameyoushouldreallynotbeusinganythingthislonganywaysoitshouldbesafe
+mv $2 $1
+mv tempfilenameyoushouldreallynotbeusinganythingthislonganywaysoitshouldbesafe $2
