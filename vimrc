@@ -60,6 +60,9 @@ endif
 
 "End dein Scripts-------------------------
 
+nnoremap <silent> <C-Y> 3<C-Y>
+nnoremap <silent> <C-E> 3<C-E>
+
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 let g:highlightedyank_highlight_duration = 220
