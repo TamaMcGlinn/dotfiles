@@ -14,6 +14,8 @@ call dein#begin('~/code/dein')
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
+call dein#add('machakann/vim-highlightedyank')
+call dein#add('vim-scripts/YankRing.vim')
 call dein#add('terryma/vim-multiple-cursors')
 call dein#add('nacitar/a.vim')
 call dein#add('easymotion/vim-easymotion')
@@ -57,6 +59,12 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+nnoremap <silent> <F3> :YRShow<cr>
+inoremap <silent> <F3> <ESC>:YRShow<cr>
+let g:highlightedyank_highlight_duration = 220
+"fix for yankring and neovim
+let g:yankring_clipboard_monitor=0
 
 " Use visual bell (no beeping)
 set visualbell
@@ -179,6 +187,7 @@ nnoremap <leader>fht :call SelectaCommand("ionice -c3 find * -type f -name \"*.h
 
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>b :BufExplorer<CR>
+
 
 let g:neomake_verbose=3
 let g:neomake_logfile='/tmp/error.log'
