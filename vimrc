@@ -16,7 +16,6 @@ call dein#add('Shougo/dein.vim')
 " Add or remove your plugins here:
 call dein#add('machakann/vim-highlightedyank')
 call dein#add('vim-scripts/YankRing.vim')
-call dein#add('terryma/vim-multiple-cursors')
 call dein#add('nacitar/a.vim')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('fntlnz/atags.vim')
@@ -188,9 +187,13 @@ nnoremap <leader>fhv :call SelectaCommand("ionice -c3 find * -type f -name \"*.h
 nnoremap <leader>fhs :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":sp")<cr>
 nnoremap <leader>fht :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":tabe")<cr>
 
+nnoremap <space>gd :Gdiff<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>b :BufExplorer<CR>
 
+" same bindings for merging diffs as in normal mode
+xnoremap dp :diffput<cr>
+xnoremap do :diffget<cr>
 
 let g:neomake_verbose=3
 let g:neomake_logfile='/tmp/error.log'
