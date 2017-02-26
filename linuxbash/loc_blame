@@ -1,0 +1,10 @@
+#!/bin/bash
+# Prints the lines of code from each contributor (by email)
+
+find . -type f -print0 | xargs -0 -n 1 -I src blamefile src | sort | uniq -c | tee
+
+# Example output:
+#130835 someone@gmail.com
+#  35 someone@elsewhere.net
+# 130 someone@gmail.com
+# (and lots of errors on stderr, ignore them)
