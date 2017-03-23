@@ -22,6 +22,7 @@
 	co = checkout
 	cob = checkout -B
 	p = "!f() { git push --set-upstream origin --recurse-submodules=check `git branch | grep "^*" | cut -d' ' -f2`; }; f"
+	pl = pull
 	pf = "!f() { git push --force-with-lease --set-upstream origin --recurse-submodules=check `git branch | grep "^*" | cut -d' ' -f2`; }; f"
 	f = fetch --tags --all
 	cp = cherry-pick --no-commit
