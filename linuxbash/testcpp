@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/code/archive/Cpp/Short/
+cp template.cpp $1
+nvim $1 +5

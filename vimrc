@@ -15,6 +15,8 @@ call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 call dein#add('machakann/vim-highlightedyank')
+call dein#add('osyo-manga/vim-marching')
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('vim-scripts/YankRing.vim')
 call dein#add('nacitar/a.vim')
 call dein#add('easymotion/vim-easymotion')
@@ -35,7 +37,7 @@ call dein#add('nelstrom/vim-markdown-folding')
 call dein#add('rhysd/conflict-marker.vim')
 call dein#add('vim-scripts/mru.vim')
 call dein#add('tpope/vim-ragtag')
-call dein#add('jlanzarotta/bufexplorer')
+call dein#add('jlanzarotta/bufexplorer') " Obsolete? I use F4 mapped to MRU
 call dein#add('sjl/gundo.vim')
 "inoremap <M-o>       <Esc>o
 "inoremap <C-j>       <Down>
@@ -43,6 +45,7 @@ call dein#add('sjl/gundo.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
 call dein#add('bronson/vim-trailing-whitespace')
+call dein#add('jreybert/vimagit')
 source /usr/share/vim/vim74/macros/matchit.vim
 
 " Required:
@@ -62,6 +65,8 @@ endif
 
 nnoremap <silent> <C-Y> 3<C-Y>
 nnoremap <silent> <C-E> 3<C-E>
+
+nnoremap <silent> <F4> :MRU<cr>
 
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
@@ -95,8 +100,11 @@ let Tlist_Compact_Format = 1
 let Tlist_Close_On_Select = 1
 
 " fugitive bindings
-nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gw :Gwrite<CR>
 
 " toggle US spelling with leader s
 set spelllang=en_us
@@ -118,7 +126,8 @@ if has("autocmd")
 	augroup END " }
 endif
 
-nmap <Leader>v :tabedit $MYVIMRC<CR>
+nmap <Leader>vv :tabedit $MYVIMRC<CR>
+nmap <Leader>vg :tabedit ~/.gitconfig<CR> " Unsolved problem; if that's a symbolic link you can't use Magit or fugitive on the pointed-to file
 
 " Bubble single lines
 nmap <C-Up> [e
@@ -137,11 +146,18 @@ set undofile
 
 nnoremap <leader>m :Neomake!<CR>
 
+" quit: F2 - Control means "without saving", Shift means "all buffers"
 inoremap <F2> <ESC>:wq<CR>
 nnoremap <F2> :wq<CR>
+inoremap <F14> <ESC>:wall<CR>:qall<CR> " F14 is S-F2
+nnoremap <F14> :wall<CR>:qall<CR>
 inoremap <C-F2> <ESC>:q!<CR>
 nnoremap <C-F2> :q!<CR>
-nnoremap <leader><l> :SaveSession<CR>
+inoremap <C-S-F2> <ESC>:qall!<CR>
+nnoremap <C-S-F2> :qall!<CR>
+
+nnoremap <leader>l :SaveSession<CR>
+nnoremap <leader>tc :tabclose<CR>
 
 set noexpandtab
 set copyindent
@@ -152,7 +168,7 @@ set tabstop=2
 
 :let g:session_autosave = 'no'
 
-nnoremap <leader>d :nohl<CR>zz
+nnoremap <leader>d :nohl<CR>zz " After searching I kept being confused that I couldn't directly edit - d stands for "done searching"
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
@@ -188,8 +204,6 @@ nnoremap <leader>fhv :call SelectaCommand("ionice -c3 find * -type f -name \"*.h
 nnoremap <leader>fhs :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":sp")<cr>
 nnoremap <leader>fht :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":tabe")<cr>
 
-nnoremap <space>gd :Gdiff<CR>
-nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>b :BufExplorer<CR>
 
 " same bindings for merging diffs as in normal mode
@@ -198,3 +212,6 @@ xnoremap do :diffget<cr>
 
 let g:neomake_verbose=3
 let g:neomake_logfile='/tmp/error.log'
+
+nnoremap <leader>cc :!clang++ -Wall -std=c++1z %<CR>
+nnoremap <leader>cr :!./a.out<CR>
