@@ -42,6 +42,7 @@ call dein#add('sjl/gundo.vim')
 "let g:ragtag_global_maps = 1
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-repeat')
+call dein#add('tpope/vim-speeddating')
 call dein#add('bronson/vim-trailing-whitespace')
 source /usr/share/vim/vim74/macros/matchit.vim
 
