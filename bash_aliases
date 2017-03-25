@@ -160,3 +160,5 @@ alias emp_chat='emp_chat -i "([^)]*)\ [^:]*:\ \(Tama\|Bob\)" | tee ~/code/empire
 alias ifconfig='/sbin/ifconfig'
 alias botserver='./srcds_run -game empires +map bottest2v9t +maxplayers 8 -nobreakpad -debug +sv_lan 0 +ip 192.168.1.101 -insecure'
 alias mkcd='. mkcd'
+alias magit="nvim -c MagitOnly"
+alias tiga="tig --all"

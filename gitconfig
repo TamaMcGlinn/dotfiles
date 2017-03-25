@@ -6,7 +6,11 @@
 	recurseSubmodules = check
 [core]
 	editor = nvim
+	autocrlf = input
 [alias]
+	d = branch -d
+	D = branch -D
+	b = branch
 	rep = "!f() { git checkout -B $1 origin/$1 && git submodule update --init --recursive; }; f"
 	lges = log --pretty=oneline --abbrev-commit
 	lgnathan = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all
@@ -16,7 +20,7 @@
 	su = submodule update --init --recursive
 	ss = submodule status
 	co = checkout
-	cob = checkout -b
+	cob = checkout -B
 	p = "!f() { git push --set-upstream origin --recurse-submodules=check `git branch | grep "^*" | cut -d' ' -f2`; }; f"
 	pl = pull
 	pf = "!f() { git push --force-with-lease --set-upstream origin --recurse-submodules=check `git branch | grep "^*" | cut -d' ' -f2`; }; f"
