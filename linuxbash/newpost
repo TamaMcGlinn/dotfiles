@@ -1,0 +1,2 @@
+#!/bin/bash
+nvim `date "+%Y-%m-%d-$1.markdown"`
