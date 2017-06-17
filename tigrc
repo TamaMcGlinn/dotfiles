@@ -26,3 +26,8 @@ bind main M !git merge --no-ff %(branch)
 set main-view	= line-number:no,interval=5 id:no date:default author:abbreviated commit-title:yes,graph,refs,overflow=no
 
 set vertical-split = no
+
+# Checkout a file from tree view of a revision, commit, branch, by pressing t to go into tree view, then Ctrl-F to get the file back to that revision's version
+bind generic ^F !?git checkout %(commit) %(file)
+
+# TODO read more answered tig questions: https://stackoverflow.com/search?q=tig+answers%3A1 
