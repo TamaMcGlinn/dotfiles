@@ -1,0 +1,2 @@
+#!/bin/bash
+git commit -m "Committed and pushed on `date`" && git push
