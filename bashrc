@@ -128,5 +128,3 @@ fi
 #export CC=/usr/local/bin/gcc
 #export CC=/usr/bin/clang
 #export CXX=/usr/bin/clang++
-
-source ~/code/emsdk_portable/emsdk_set_env.sh # Allow em++ and emcc commands
