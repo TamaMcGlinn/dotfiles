@@ -31,3 +31,45 @@ set vertical-split = no
 bind generic <Ctrl-F> !?git checkout %(commit) %(file)
 
 # TODO read more answered tig questions: https://stackoverflow.com/search?q=tig+answers%3A1 
+
+#########
+# GENERIC
+#########
+
+# git - generic
+bind generic g ?sh -c "git %(prompt git )"
+
+######
+# MAIN
+######
+
+# compare commit in log view with its parent per http://stackoverflow.com/questions/436362/shorthand-for-diff-of-git-commit-with-its-parent
+bind main <F4> !git difftool -d %(commit)^!
+
+# first key press creates compare-base, second key compares base to selected commit
+bind main <F5> @git tig-compare-commits %(commit)
+
+# create new branch
+bind main <Ctrl-b> @git branch "%(prompt Enter new branch name: )" %(commit)
+
+# copy commit hash
+bind main C @sh -c "printf %(commit) | tr -d '\n' | pbcopy" # Mac
+
+########
+# STATUS
+########
+
+# compare selected file in status view. need to use revpase since %(file) is always relative to root but current directory might be nested in root already
+bind status <F4> !sh -c "git difftool -y \"$(git rev-parse --show-toplevel)/%(file)\""
+
+# add selected file to .gitignore
+bind status <Ctrl-r> !sh -c "echo %(file) >> .gitignore && vi .gitignore"
+
+# git --amend
+bind status A !git commit --amend
+
+# delete a
+bind status D ?sh -c "rm \"$(git rev-parse --show-toplevel)/%(file)\""
+
+# preview commit
+bind status P !git commit-preview
