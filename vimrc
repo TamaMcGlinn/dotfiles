@@ -64,6 +64,8 @@ endif
 
 "End dein Scripts-------------------------
 
+set mouse=a "Allow mouse drag
+
 nnoremap <silent> <C-Y> 3<C-Y>
 nnoremap <silent> <C-E> 3<C-E>
 
