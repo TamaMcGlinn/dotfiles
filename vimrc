@@ -45,6 +45,7 @@ call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-speeddating')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('jreybert/vimagit')
+call dein#add('justmao945/vim-clang')
 source /usr/share/vim/vim74/macros/matchit.vim
 
 " Required:
