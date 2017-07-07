@@ -197,14 +197,6 @@ nnoremap <leader>fae :call SelectaCommand("ionice -c3 find * -type f", "", ":e")
 nnoremap <leader>fav :call SelectaCommand("ionice -c3 find * -type f", "", ":vsp")<cr>
 nnoremap <leader>fas :call SelectaCommand("ionice -c3 find * -type f", "", ":sp")<cr>
 nnoremap <leader>fat :call SelectaCommand("ionice -c3 find * -type f", "", ":tabe")<cr>
-nnoremap <leader>fse :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":e")<cr>
-nnoremap <leader>fsv :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":vsp")<cr>
-nnoremap <leader>fss :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":sp")<cr>
-nnoremap <leader>fst :call SelectaCommand("ionice -c3 find * -type f -name \"*.cpp\"", "", ":tabe")<cr>
-nnoremap <leader>fhe :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":e")<cr>
-nnoremap <leader>fhv :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":vsp")<cr>
-nnoremap <leader>fhs :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":sp")<cr>
-nnoremap <leader>fht :call SelectaCommand("ionice -c3 find * -type f -name \"*.h\"", "", ":tabe")<cr>
 
 nnoremap <leader>b :BufExplorer<CR>
 
