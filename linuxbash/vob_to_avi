@@ -1,0 +1,6 @@
+#!/bin/bash
+INPUT=$1
+QUALITY=$2
+if (( 1 > $QUALITY || $QUALITY > 50 )); then echo "Quality should be [1-50]"; exit; fi
+OUTPUT="${INPUT%.*}_q$QUALITY.avi"
+avconv -i "$1" -c:v libx264 -crf "$QUALITY" -c:a libmp3lame -ac 2 -ab 192k "$OUTPUT"
