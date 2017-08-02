@@ -63,6 +63,11 @@ endif
 
 "End dein Scripts-------------------------
 
+" make cscope files with F11
+nmap <F11> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+  \:!cscope -b -i cscope.files -f cscope.out<CR>
+  \:cs kill -1<CR>:cs add cscope.out<CR>
+
 set mouse=a "Allow mouse drag
 
 nnoremap <silent> <C-Y> 3<C-Y>
@@ -207,5 +212,13 @@ xnoremap do :diffget<cr>
 let g:neomake_verbose=3
 let g:neomake_logfile='/tmp/error.log'
 
+let g:clang_cpp_options = '-std=c++14' "  -stdlib=libc++
+
 nnoremap <leader>cc :!clang++ -Wall -std=c++1z %<CR>
 nnoremap <leader>cr :!./a.out<CR>
+
+" Turn today into fold
+let @-='R# 0'
+" Fold today
+let @_='R# 0'
+

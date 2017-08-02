@@ -18,6 +18,7 @@
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(dim white) %an%C(reset)%C(bold yellow)%d%C(reset)%n''        %C(white)%<(114,mtrunc)%s%C(reset)' --all
 	s = status
 	su = submodule update --init --recursive
+	updateone = "submodule update --init --"
 	ss = submodule status
 	co = checkout
 	cob = checkout -B

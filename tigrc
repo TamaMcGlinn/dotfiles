@@ -1,19 +1,17 @@
 # Amend last commit
 bind generic + !git commit --amend
 
-# Reset 
+# Switch to:
 bind main b !git checkout -B "%(prompt Enter branch name: )" %(commit)
 
 # Revert with 1 from main view
 bind main 1 !git revert %(commit)
-
-# Revert without committing
+# Shift: Revert without committing
 bind main ! !git revert --no-commit %(commit)
 
-# Reset to highlighted commit, mixed
+# Reset to highlighted commit, keep current working dir
 bind main v !git reset --mixed %(commit)
-
-# Reset to highlighted commit, hard
+# Shift: Reset to highlighted commit, hard
 bind main V !git reset --hard %(commit)
 
 # Create new branch here
@@ -30,7 +28,7 @@ set vertical-split = no
 # Checkout a file from tree view of a revision, commit, branch, by pressing t to go into tree view, then Ctrl-F to get the file back to that revision's version
 bind generic <Ctrl-F> !?git checkout %(commit) %(file)
 
-# TODO read more answered tig questions: https://stackoverflow.com/search?q=tig+answers%3A1 
+# TODO read more answered tig questions: https://stackoverflow.com/search?q=tig+answers%3A1
 
 #########
 # GENERIC
