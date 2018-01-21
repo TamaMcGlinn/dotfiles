@@ -212,7 +212,7 @@ xnoremap do :diffget<cr>
 let g:neomake_verbose=3
 let g:neomake_logfile='/tmp/error.log'
 
-let g:clang_cpp_options = '-std=c++14' "  -stdlib=libc++
+let g:clang_cpp_options = '-std=c++1z -I ~/code/boost_1_64_0'
 
 nnoremap <leader>cc :!clang++ -Wall -std=c++1z %<CR>
 nnoremap <leader>cr :!./a.out<CR>
