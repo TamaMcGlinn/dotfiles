@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Ignoring:"
+touch .gitignore
+echo "$1" | tee -a .gitignore
+git add .gitignore
