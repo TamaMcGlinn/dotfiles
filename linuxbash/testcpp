@@ -1,4 +1,5 @@
 #!/bin/bash
 cd ~/code/archive/Cpp/Short/
-cp template.cpp $1
-nvim $1 +5
+FILENAME=${1:-test.cpp}
+cp template.cpp $FILENAME
+nvim $FILENAME +5
