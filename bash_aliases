@@ -1,4 +1,5 @@
 alias c=clear
+alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias view='tree -Ld 2'
 alias g=git
 alias emp_conf='./createallprojects && ./creategameprojects'

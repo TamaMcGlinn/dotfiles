@@ -46,7 +46,6 @@ call dein#add('tpope/vim-speeddating')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('jreybert/vimagit')
 call dein#add('justmao945/vim-clang')
-source /usr/share/vim/vim74/macros/matchit.vim
 
 " Required:
 call dein#end()
@@ -175,7 +174,7 @@ set tabstop=2
 
 :let g:session_autosave = 'no'
 
-nnoremap <leader>d :nohl<CR>zz " After searching I kept being confused that I couldn't directly edit - d stands for "done searching"
+nnoremap <leader>d :nohl<CR> " After searching I kept being confused that I couldn't directly edit - d stands for "done searching"
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
@@ -202,8 +201,6 @@ nnoremap <leader>fae :call SelectaCommand("ionice -c3 find * -type f", "", ":e")
 nnoremap <leader>fav :call SelectaCommand("ionice -c3 find * -type f", "", ":vsp")<cr>
 nnoremap <leader>fas :call SelectaCommand("ionice -c3 find * -type f", "", ":sp")<cr>
 nnoremap <leader>fat :call SelectaCommand("ionice -c3 find * -type f", "", ":tabe")<cr>
-
-nnoremap <leader>b :BufExplorer<CR>
 
 " same bindings for merging diffs as in normal mode
 xnoremap dp :diffput<cr>

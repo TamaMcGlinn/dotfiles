@@ -1,5 +1,6 @@
 #!/bin/bash
 cd ~/code/archive/Cpp/Short/
 FILENAME=${1:-test.cpp}
+[[ $FILENAME == *.cpp ]] || FILENAME=$FILENAME.cpp
 cp template.cpp $FILENAME
 nvim $FILENAME +5
