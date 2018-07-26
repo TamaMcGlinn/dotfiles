@@ -1,6 +1,6 @@
 #!/bin/bash
 # General stuff, including the requirements to build neovim
-sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python xclip gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext
+sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python xclip gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext ninja-build subversion
 
 # Build NeoVim from source
 mkdir -p ~/code
