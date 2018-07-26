@@ -4,6 +4,9 @@ bind generic + !git commit --amend
 # Switch to:
 bind main b !git checkout -B "%(prompt Enter branch name: )" %(commit)
 
+# Push
+bind main P !git push
+
 # Revert with 1 from main view
 bind main 1 !git revert %(commit)
 # Shift: Revert without committing
