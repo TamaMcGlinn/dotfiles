@@ -1,0 +1,6 @@
+#!/bin/bash
+dirname=${PWD##*/}
+git bundle create /media/tama/KINGSTON/repos/$dirname.bundle HEAD master
+git remote remove origin
+git remote add origin /media/tama/KINGSTON/repos/$dirname.bundle
+git fetch
