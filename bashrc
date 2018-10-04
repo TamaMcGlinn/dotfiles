@@ -115,16 +115,20 @@ fi
 source $HOME/dotfiles/linuxbash/git-completion.bash
 __git_complete g __git_main
 source $HOME/.bash_aliases
-# Custom path dir
-export PATH=$PATH:$HOME/dotfiles/linuxbash:$HOME/code/buildcache
 export EDITOR='nvim'
 
 if [[ $TMUX ]]; then 
 	source ~/.tmux-git/tmux-git.sh; 
-else
-	tmux
 fi
 
+if ! [[ $VIMEMBEDDEDTERMINAL ]]; then
+  # Custom path dir
+  export PATH=$PATH:$HOME/dotfiles/linuxbash:$HOME/code/buildcache
+  export VIMEMBEDDEDTERMINAL=true
+  nvim
+fi
+
+export BOOST_ROOT=$HOME/code/boost_1_64_0
 #export CC=/usr/local/bin/gcc
 #export CC=/usr/bin/clang
 #export CXX=/usr/bin/clang++
