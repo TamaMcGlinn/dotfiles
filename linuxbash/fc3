@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type d -mindepth 3 -maxdepth 3 | selecta
+find . -mindepth 3 -maxdepth 3 -type d | selecta
