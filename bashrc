@@ -132,3 +132,8 @@ export BOOST_ROOT=$HOME/code/boost_1_64_0
 #export CC=/usr/local/bin/gcc
 #export CC=/usr/bin/clang
 #export CXX=/usr/bin/clang++
+
+source /opt/intel/openvino/bin/setupvars.sh
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
