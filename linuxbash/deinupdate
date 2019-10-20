@@ -1,0 +1,12 @@
+#!/bin/bash
+cd ~/vimscripts/dein/repos/;
+ls | (while read host; do cd $host; \
+  echo "Host: " $host;
+  ls | (while read dir; do cd $dir; ls | (while read repo; do \
+            cd $repo; 
+            echo "$dir/$repo";
+            git pull; 
+          cd ..; done);
+        cd ..; done);
+  cd ..;
+done);
