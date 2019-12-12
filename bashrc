@@ -140,3 +140,5 @@ export BOOST_ROOT=$HOME/code/boost_1_64_0
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
