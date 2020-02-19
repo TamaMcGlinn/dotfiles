@@ -2,6 +2,8 @@
 # General stuff, including the requirements to build neovim
 sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext ninja-build subversion
 
+dconf write /org/gnome/desktop/sound/event-sounds "false"
+
 # Build NeoVim from source
 mkdir -p ~/code
 git clone https://github.com/neovim/neovim.git ~/code/neovim

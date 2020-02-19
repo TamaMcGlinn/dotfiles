@@ -1,0 +1,3 @@
+#!/bin/bash
+gprbuild --target=arm-eabi -g -d src/main.adb -largs -Wl,-Map=map.txt
+arm-eabi-objcopy -O binary obj/main obj/main.bin
