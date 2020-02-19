@@ -16,8 +16,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=
+HISTFILESIZE=
+HISTTIMEFORMAT="%F %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -126,7 +127,7 @@ fi
 
 if ! [[ $VIMEMBEDDEDTERMINAL ]]; then
   # Custom path dir
-  export PATH=$PATH:$HOME/dotfiles/linuxbash:$HOME/code/buildcache
+  export PATH=$PATH:$HOME/dotfiles/linuxbash:$HOME/code/buildcache:$HOME/code/s4/s4_scripts:/opt/wine-stable/bin
   export VIMEMBEDDEDTERMINAL=true
   nvim
 fi
@@ -140,5 +141,7 @@ export BOOST_ROOT=$HOME/code/boost_1_64_0
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source ~/dotfiles/environment
+
