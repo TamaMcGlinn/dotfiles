@@ -1,0 +1,2 @@
+#!/bin/bash
+gprbuild -d -p -g

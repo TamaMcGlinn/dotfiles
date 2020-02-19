@@ -1,0 +1,2 @@
+#!/bin/bash
+/opt/GNAT/2019-arm-elf/bin/arm-eabi-gdb

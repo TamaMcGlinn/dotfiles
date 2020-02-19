@@ -1,0 +1,2 @@
+#!/bin/bash
+pyocd flash -a 0x0 $1
