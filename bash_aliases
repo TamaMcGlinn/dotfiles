@@ -1,4 +1,5 @@
 alias c=clear
+alias la='ls -lah'
 alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias view='tree -Ld 2'
 alias g=git
@@ -18,6 +19,8 @@ alias confgit='nvim ~/dotfiles/gitconfig'
 alias conftmux='nvim ~/dotfiles/tmux.conf'
 alias conftig='nvim ~/.tigrc'
 alias tp=trash-put
+alias clip='xclip -selection clipboard'
+alias clipout='xclip -o -selection clipboard'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'

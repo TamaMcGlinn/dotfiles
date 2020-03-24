@@ -6,7 +6,7 @@
 	recurseSubmodules = check
 [core]
 	editor = nvim
-	autocrlf = input
+	autocrlf = true
 [alias]
 	d = branch -d
 	D = branch -D
@@ -42,3 +42,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[merge]
+	renamelimit = 15000

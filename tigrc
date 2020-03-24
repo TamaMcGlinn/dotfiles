@@ -1,3 +1,6 @@
+# Rebase
+
+bind main r !git rebase --interactive --autosquash %(commit)
 # Amend last commit
 bind generic + !git commit --amend
 

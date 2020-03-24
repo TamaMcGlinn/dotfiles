@@ -1,6 +1,8 @@
 #!/bin/bash
 # General stuff, including the requirements to build neovim
-sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext ninja-build subversion
+sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext ninja-build subversion nodejs npm virtualenv python-dev ipython python3.8-dev texlive-latex-base libgtk-3-dev wine-stable
+
+dconf write /org/gnome/desktop/sound/event-sounds "false"
 
 dconf write /org/gnome/desktop/sound/event-sounds "false"
 
@@ -14,8 +16,8 @@ sudo make install
 # Get dein
 ~/dotfiles/custom_installers/get_dein
 
-# Get the tmux-git program, that shows the repo status in the bottom-right
-git clone git://github.com/drmad/tmux-git.git ~/.tmux-git
-
 # Get trash-put
 ~/dotfiles/custom_installers/get_tp
+
+# Get fzf
+~/dotfiles/custom_installers/get_fzf
