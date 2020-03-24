@@ -138,3 +138,5 @@ source /opt/intel/openvino/bin/setupvars.sh
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 bind 'TAB':menu-complete
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
