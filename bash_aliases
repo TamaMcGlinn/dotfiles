@@ -10,7 +10,6 @@ alias emp_serv='./srcds_run -game empires +map bottest2v9t +maxplayers 8 -nobrea
 alias emp_src='cd ~/code/empires/empires_main/mp/src'
 alias emp_ga='cd ~/code/empires/empires_main/mp/game'
 alias emp_scr='cd ~/code/empires/empires_main/mp/game/empires/scripts'
-alias rm='echo "You should use trash-put. If you really want to permanently delete, use \\rm"; false'
 alias steam='reallysteam'
 alias mux=tmuxinator
 alias confvim='nvim ~/dotfiles/vimrc'

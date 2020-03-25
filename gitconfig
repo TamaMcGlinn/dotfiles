@@ -6,7 +6,7 @@
 	recurseSubmodules = check
 [core]
 	editor = nvim
-	autocrlf = true
+	autocrlf = input
 [alias]
 	d = branch -d
 	D = branch -D
