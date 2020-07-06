@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type f -iname '*.png' | (while read line; do convert "$line" -format jpg -define jpeg:extent=300kb "${line%.png}.jpg"; done)

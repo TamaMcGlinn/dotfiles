@@ -1,1 +1,1 @@
-export GPR_PROJECT_PATH=/usr/local/lib/gnat
+export GPR_PROJECT_PATH=/usr/local/lib/gnat:~/code/ada/adacore/libadalang:~/opt/GNAT/2020/include/aunit
