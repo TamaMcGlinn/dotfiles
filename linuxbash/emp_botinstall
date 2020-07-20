@@ -1,6 +1,0 @@
-#!/bin/bash
-rm -rf ~/code/empires/empires_base/mp/Empires
-mv ~/code/empires/empires_base/mp/game ~/code/empires/empires_base/mp/Empires
-cp -rf ~/code/empires/botrix_vanilla/* ~/code/empires/empires_base/mp/Empires/empires/
-cp ~/code/empires/botrix/build/libbotrix.so ~/code/empires/empires_base/mp/Empires/empires/addons/
-cp ~/code/empires/stuff/botrix/changes/config.ini ~/code/empires/empires_base/mp/Empires/empires/addons/botrix/
