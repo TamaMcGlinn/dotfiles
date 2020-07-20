@@ -139,7 +139,14 @@ export BOOST_ROOT=$HOME/code/boost_1_64_0
 
 #source /opt/intel/openvino/bin/setupvars.sh
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+export PKG_CONFIG_PATH="${HOME}/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH}"
+export CPATH="${HOME}/usr/local/include:${CPATH}"
+
+export MANPATH="${HOME}/usr/local/share/man:${MANPATH}"
+
+export PATH="${HOME}/usr/local/bin:${PATH}"
+export LD_LIBRARY_PATH="${HOME}/usr/local/lib:${LD_LIBRARY_PATH}"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
