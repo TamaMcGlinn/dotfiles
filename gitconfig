@@ -5,7 +5,7 @@
 	default = simple
 	recurseSubmodules = check
 [core]
-	editor = nvim
+	editor = nvr
 	autocrlf = input
 [alias]
 	d = branch -d
@@ -31,6 +31,7 @@
 	chuck = "!f() { git checkout -- . && git clean -df; }; f"
 	c = commit -m
 	cm = commit --amend
+	cmn = commit --amend --no-edit
 	ca = commit -a -m
 	cap = "!f() { git commit -a -m \"$1\" && git push; }; f"
 	# From http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command#957978

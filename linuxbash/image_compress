@@ -1,0 +1,3 @@
+#!/bin/bash
+maxsize=${1:-300}
+find . -type f -iname '*.jpg' -size +${maxsize}k -exec convert "{}" -format jpg -define jpeg:extent=${maxsize}kb "{}" \;

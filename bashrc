@@ -127,7 +127,7 @@ fi
 
 if ! [[ $VIMEMBEDDEDTERMINAL ]]; then
   # Custom path dir
-  export PATH=$PATH:$HOME/dotfiles/linuxbash:$HOME/code/buildcache:$HOME/code/s4/s4_scripts:/opt/wine-stable/bin
+  export PATH=$HOME/dotfiles/linuxbash:$HOME/code/buildcache:$HOME/code/s4/s4_scripts:/opt/wine-stable/bin:$HOME/.local/bin:/home/tama/opt/GNAT/2020/bin:$PATH
   export VIMEMBEDDEDTERMINAL=true
   nvim
 fi
