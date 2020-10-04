@@ -45,3 +45,5 @@
 	required = true
 [merge]
 	renamelimit = 15000
+[cola]
+	spellcheck = false
