@@ -125,7 +125,9 @@ if [[ $TMUX ]]; then
 	source ~/.tmux-git/tmux-git.sh; 
 fi
 
-if ! [[ $VIMEMBEDDEDTERMINAL ]]; then
+if [[ $VIMEMBEDDEDTERMINAL ]]; then
+  alias defedit=defedit_nvr
+else
   # Custom path dir
   export PATH=$HOME/dotfiles/linuxbash:$HOME/code/buildcache:$HOME/code/s4/s4_scripts:/opt/wine-stable/bin:$HOME/.local/bin:/home/tama/opt/GNAT/2020/bin:$PATH
   export VIMEMBEDDEDTERMINAL=true
@@ -153,3 +155,25 @@ export LD_LIBRARY_PATH="${HOME}/usr/local/lib:${LD_LIBRARY_PATH}"
 source ~/dotfiles/environment
 
 bind 'TAB':menu-complete
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT="/home/tama/code/cocos2d-x/tools/cocos2d-console/bin"
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_X_ROOT for cocos2d-x
+export COCOS_X_ROOT="/home/tama/code"
+export PATH=$COCOS_X_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT="/home/tama/code/cocos2d-x/templates"
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable NDK_ROOT for cocos2d-x
+export NDK_ROOT="/home/tama/Android/Sdk/ndk/21.3.6528147"
+export PATH=$NDK_ROOT:$PATH
+
+# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
+export ANDROID_SDK_ROOT="/home/tama/Android/Sdk"
+export PATH=$ANDROID_SDK_ROOT:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+
