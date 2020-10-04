@@ -1,3 +1,4 @@
 #!/bin/bash
 maxsize=${1:-300}
-find . -type f -iname '*.jpg' -size +${maxsize}k -exec convert "{}" -format jpg -define jpeg:extent=${maxsize}kb "{}" \;
+find . -type f -size +${maxsize}k \( -iname '*.jpg' -o -iname '*.png' \) \
+  -exec sh -c 'convert "$1" -format jpg -define jpeg:extent=${2}kb "${1%.*}_small.jpg"; rm $1; mv "${1%.*}_small.jpg" $1' sh {} $maxsize \;

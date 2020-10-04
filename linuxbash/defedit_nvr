@@ -1,0 +1,18 @@
+#!/bin/bash
+
+grep -nF "$1" ~/.bash_aliases
+if [ $? -eq 0 ]; then
+	nvr +`grep -nF "$1" ~/.bash_aliases | cut -d':' -f1` ~/.bash_aliases
+	exit;
+fi
+grep -nF "$1" ~/.gitconfig
+if [ $? -eq 0 ]; then
+	nvr +`grep -nF "$1" ~/.gitconfig | cut -d':' -f1` ~/.gitconfig;
+	exit;
+fi
+
+if [ ! -f "`readlink -f ~`/dotfiles/linuxbash/$1" ]; then
+	echo '#!/bin/bash' > ~/dotfiles/linuxbash/$1;
+	chmod +x ~/dotfiles/linuxbash/$1;
+fi
+nvr ~/dotfiles/linuxbash/$1

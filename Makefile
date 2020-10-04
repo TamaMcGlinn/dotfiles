@@ -7,7 +7,6 @@ install:
 	ln -fs ~/dotfiles/gitconfig ~/.gitconfig
 	ln -fs ~/dotfiles/tigrc ~/.tigrc
 	ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
-	ln -fs ~/dotfiles/vimrc ~/.config/nvim/init.vim
 
 uninstall:
 	rm ~/.bash_aliases

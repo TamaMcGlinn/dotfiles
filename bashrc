@@ -125,7 +125,9 @@ if [[ $TMUX ]]; then
 	source ~/.tmux-git/tmux-git.sh; 
 fi
 
-if ! [[ $VIMEMBEDDEDTERMINAL ]]; then
+if [[ $VIMEMBEDDEDTERMINAL ]]; then
+  alias defedit=defedit_nvr
+else
   # Custom path dir
   export PATH="${HOME}/usr/local/bin:/opt/GNAT/2020/libexec/gnatstudio/als:${HOME}/dotfiles/linuxbash:${HOME}/code/buildcache:${HOME}/code/s4/s4_scripts:/opt/wine-stable/bin:${HOME}/.local/bin:/opt/GNAT/2020/bin:${HOME}/code/ada/gnoga/bin:${HOME}/code/ada/alire/bin:${PATH}"
   export VIMEMBEDDEDTERMINAL=true
@@ -166,7 +168,7 @@ export COCOS_TEMPLATES_ROOT="/home/tama/code/cocos2d-x/templates"
 export PATH=$COCOS_TEMPLATES_ROOT:$PATH
 
 # Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT="/home/tama/Android/Sdk/ndk" # /21.3.6528147"
+export NDK_ROOT="/home/tama/Android/Sdk/ndk/21.3.6528147"
 export PATH=$NDK_ROOT:$PATH
 
 # Add environment variable ANDROID_SDK_ROOT for cocos2d-x
