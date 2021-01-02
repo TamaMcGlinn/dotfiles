@@ -1,1 +1,1 @@
-export GPR_PROJECT_PATH=/usr/local/lib/gnat:/home/tama/code/ada/adacore/libadalang:/home/tama/opt/GNAT/2020/include/aunit:/home/tama/code/ada/gnoga/src:/home/tama/code/ada/gnoga
+export GPR_PROJECT_PATH=/usr/local/lib/gnat:/home/tama/code/ada/adacore/libadalang:/home/tama/opt/GNAT/2020/include/aunit:/home/tama/code/ada/gnoga/src:/home/tama/code/ada/gnoga:/home/tama/code/ada/adacore/gtkada/src

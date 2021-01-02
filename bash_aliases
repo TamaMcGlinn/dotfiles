@@ -1,7 +1,8 @@
 alias c=clear
-alias la='ls -lah'
+alias la='exa -l --git --header'
 alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
-alias view='tree -Ld 2'
+alias view='exa --tree -l --git'
+alias fd=fdfind
 alias g=git
 alias emp_conf='./createallprojects && ./creategameprojects'
 alias emp_make='make -f games.mak -j`nproc`'
