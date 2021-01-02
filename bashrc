@@ -178,3 +178,7 @@ export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 # submodule_bundler
 export PATH="/home/tama/code/python/submodule_bundler":$PATH
+
+# private stuff, not in this repository
+[ -f ~/.private_bashrc ] && source ~/.private_bashrc
+

@@ -13,6 +13,9 @@ cd ~/code/neovim
 make
 sudo make install
 
+# Neovim Remote
+pip install neovim-remote
+
 # Get dein
 ~/dotfiles/custom_installers/get_dein
 
