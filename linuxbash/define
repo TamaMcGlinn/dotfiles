@@ -1,7 +1,7 @@
 #!/bin/bash
-grep -nF "$1" ~/.bash_aliases ~/.gitconfig
-if [ -f "`readlink -f ~`/dotfiles/linuxbash/$1" ]; then
-	echo "~/dotfiles/linuxbash/$1 :"
-	cat ~/dotfiles/linuxbash/$1
+grep -nF -A1 "$1" ~/.bash_aliases ~/.gitconfig
+if [ -f "`which $1`" ]; then
+	echo "`which $1`:"
+	cat `which $1`
 fi
 

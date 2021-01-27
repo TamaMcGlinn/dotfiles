@@ -4,14 +4,6 @@ alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias view='exa --tree -l --git'
 alias fd=fdfind
 alias g=git
-alias emp_conf='./createallprojects && ./creategameprojects'
-alias emp_make='make -f games.mak -j`nproc`'
-alias emp_play='GAME_DEBUGGER=cgdb ./hl2.sh -game empires -steam -condebug -nobreakpad -insecure'
-alias emp_serv='./srcds_run -game empires +map bottest2v9t +maxplayers 8 -nobreakpad -debug +ip 192.168.1.101'
-alias emp_src='cd ~/code/empires/empires_main/mp/src'
-alias emp_ga='cd ~/code/empires/empires_main/mp/game'
-alias emp_scr='cd ~/code/empires/empires_main/mp/game/empires/scripts'
-alias steam='reallysteam'
 alias mux=tmuxinator
 alias confvim='nvim ~/dotfiles/vimrc'
 alias confbash='nvim ~/dotfiles/bash_aliases'
@@ -52,7 +44,7 @@ findcppfilegrep(){
 	ff -name "*.cpp" -or -name "*.h" | xargs -I{} grep -n -i "$1" "{}" /dev/null
 }
 alias ffgrep=findfilegrep
-alias ffcppgrep=findcppfilegrep
+alias findcpp=findcppfilegrep
 
 # Compress images
 alias im_1='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 1% {} {}'
@@ -155,13 +147,6 @@ alias im_97='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -q
 alias im_98='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 98% {} {}'
 alias im_99='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 99% {} {}'
 
-# Empires console power usage
-alias emp_logs='tail -f ~/.steam/steam/steamapps/common/Empires/empires/console.log'
-alias emp_dev_logs='tail -f ~/code/empires/empires_base/mp/game/empires/console.log'
-alias emp_grepchat='grep ".*([^)]*)\ [^:]*:\ .*" --color=never'
-alias emp_chat='emp_chat -i "([^)]*)\ [^:]*:\ \(Tama\|Bob\)" | tee ~/code/empires/stuff/ingamechatlog.txt'
-alias ifconfig='/sbin/ifconfig'
-alias botserver='./srcds_run -game empires +map bottest2v9t +maxplayers 8 -nobreakpad -debug +sv_lan 0 +ip 192.168.1.101 -insecure'
 alias mkcd='. mkcd'
 alias magit="nvim -c MagitOnly"
 alias tiga="tig --all"

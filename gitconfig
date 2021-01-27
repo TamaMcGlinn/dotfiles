@@ -1,12 +1,13 @@
 [user]
-	email = t.mcglinn@gmail.com
-	name = Tama
+	email = tamatea.mcglinn@zenseact.com
+	name = Tama McGlinn
 [push]
 	default = simple
 	recurseSubmodules = check
 [core]
 	editor = nvr
 	autocrlf = input
+	excludesfile = /home/s1000586/.gitignore
 [alias]
 	d = branch -d
 	D = branch -D
@@ -38,6 +39,7 @@
 	top = "!f() { GIT_TOP=\"${GIT_DIR%%/.git/modules/*}\"; [ \".$GIT_TOP\" != \".$GIT_DIR\" ] && cd \"$GIT_TOP\"; exec \"$@\"; }; f"
 	exec = "!exec "
 	rename = branch -M
+	gerritpush = push origin HEAD:refs/for/master
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

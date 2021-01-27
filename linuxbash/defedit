@@ -11,8 +11,8 @@ if [ $? -eq 0 ]; then
 	exit;
 fi
 
-if [ ! -f "`readlink -f ~`/dotfiles/linuxbash/$1" ]; then
+if [ ! -f "`which $1`" ]; then
 	echo '#!/bin/bash' > ~/dotfiles/linuxbash/$1;
 	chmod +x ~/dotfiles/linuxbash/$1;
 fi
-nvim ~/dotfiles/linuxbash/$1
+nvim `which $1`

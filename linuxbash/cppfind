@@ -1,1 +1,2 @@
+#!/bin/bash
 find . -name "*.cpp" -or -name "*.h" | xargs -I{} grep -n -i $1 /dev/null "{}"
