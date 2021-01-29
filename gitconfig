@@ -10,6 +10,7 @@
 	excludesfile = /home/s1000586/.gitignore
 [alias]
 	d = branch -d
+	pullrebase = pull --rebase
 	D = branch -D
 	b = branch
 	rep = "!f() { git checkout -B $1 origin/$1 && git submodule update --init --recursive; }; f"
