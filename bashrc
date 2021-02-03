@@ -129,7 +129,7 @@ if [[ $VIMEMBEDDEDTERMINAL ]]; then
   alias defedit=defedit_nvr
 else
   # Custom path dir
-  export PATH="${PATH}:$HOME/dotfiles/linuxbash"
+  export PATH="${PATH}:$HOME/dotfiles/linuxbash:/opt/GNAT/2020/bin"
   export VIMEMBEDDEDTERMINAL=true
 fi
 
