@@ -90,12 +90,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -A'
 alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -116,22 +111,20 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 source $HOME/dotfiles/linuxbash/git-completion.bash
 __git_complete g __git_main
 source $HOME/.bash_aliases
-export EDITOR='nvim'
-
-if [[ $TMUX ]]; then 
-	source ~/.tmux-git/tmux-git.sh; 
-fi
 
 if [[ $VIMEMBEDDEDTERMINAL ]]; then
   alias defedit=defedit_nvr
 else
-  # Custom path dir
-  export PATH="${PATH}:$HOME/dotfiles/linuxbash"
-  export VIMEMBEDDEDTERMINAL=true
+  export EDITOR='nvim'
 fi
+
+# Custom path dir
+export PATH="${PATH}:$HOME/dotfiles/linuxbash"
+export VIMEMBEDDEDTERMINAL=true
 
 export PKG_CONFIG_PATH="${HOME}/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH}"
 export CPATH="${HOME}/usr/local/include:${CPATH}"
