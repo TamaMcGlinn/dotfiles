@@ -154,3 +154,6 @@ export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O 
 # private stuff, not in this repository
 [ -f ~/.private_bashrc ] && source ~/.private_bashrc
 
+export PATH="${HOME}/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
