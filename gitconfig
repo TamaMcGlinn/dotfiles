@@ -41,6 +41,7 @@
 	exec = "!exec "
 	rename = branch -M
 	gerritpush = push origin HEAD:refs/for/master
+	children = "!f() { git log --format='%H %P' --all --reflog | grep -F \" $1\" | cut -f1 -d' '; }; f"
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
