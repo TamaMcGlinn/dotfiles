@@ -147,3 +147,5 @@ export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O 
 # private stuff, not in this repository
 [ -f ~/.private_bashrc ] && source ~/.private_bashrc
 
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
+
