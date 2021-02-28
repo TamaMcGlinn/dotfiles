@@ -2,7 +2,7 @@ alias c=clear
 alias la='exa -l --git --header'
 alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias view='exa --tree -l --git'
-alias fd='find . -type d -iname $1'
+alias fd=fdfind
 alias g=git
 alias mux=tmuxinator
 alias gcd='cd $(git rev-parse --show-toplevel)'
@@ -38,6 +38,11 @@ alias yavide="gvim --servername yavide -f -N -u /opt/yavide/.vimrc"
 alias find='ionice -c3 find'
 alias csa='scan-build make -f games.mak'
 alias ff='ionice -c3 find . -type f'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 findfilegrep(){
 	ff | xargs -I{} grep -n -i "$1" "{}" /dev/null
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 # General stuff, including the requirements to build neovim
-sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext ninja-build subversion nodejs npm virtualenv python-dev ipython python3.8-dev texlive-latex-base libgtk-3-dev wine-stable ripgrep fd-find rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev nvr
+sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext ninja-build subversion nodejs npm virtualenv python-dev ipython python3.8-dev texlive-latex-base libgtk-3-dev wine-stable ripgrep fd-find rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev nvr fd-find 
 
 dconf write /org/gnome/desktop/sound/event-sounds "false"
 
