@@ -120,6 +120,7 @@ if [[ $VIMEMBEDDEDTERMINAL ]]; then
   alias defedit=defedit_nvr
   export EDITOR='nvr'
 else
+  export VIMEMBEDDEDTERMINAL=true
   export EDITOR='nvim'
 fi
 
@@ -148,4 +149,6 @@ export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O 
 
 # private stuff, not in this repository
 [ -f ~/.private_bashrc ] && source ~/.private_bashrc
+
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
 
