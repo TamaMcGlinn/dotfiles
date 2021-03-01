@@ -1,4 +1,6 @@
+alias cdf='cd $(find * -type d | fzf)'
 alias c=clear
+alias say=spd-say
 alias la='exa -l --git --header'
 alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias view='exa --tree -l --git'

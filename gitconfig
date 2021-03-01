@@ -1,5 +1,5 @@
 [user]
-	email = tamatea.mcglinn@zenseact.com
+	email = t.mcglinn@gmail.com
 	name = Tama McGlinn
 [push]
 	default = simple
@@ -41,6 +41,7 @@
 	exec = "!exec "
 	rename = branch -M
 	gerritpush = push origin HEAD:refs/for/master
+	sed = "!f() { git ls-files -z | xargs -0 sed -i -e \"$@\"; }; f"
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -48,5 +49,6 @@
 	required = true
 [merge]
 	renamelimit = 15000
+	conflictstyle = diff3
 [cola]
 	spellcheck = false

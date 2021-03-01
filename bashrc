@@ -118,6 +118,7 @@ source $HOME/.bash_aliases
 
 if [[ $VIMEMBEDDEDTERMINAL ]]; then
   alias defedit=defedit_nvr
+  export EDITOR='nvr'
 else
   export EDITOR='nvim'
 fi
@@ -142,6 +143,7 @@ bind 'TAB':menu-complete
 # submodule_bundler
 export PATH="/home/tama/code/python/submodule_bundler":$PATH
 
+export FZF_DEFAULT_COMMAND="fd --exclude={.git} --type f"
 export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 
 # private stuff, not in this repository
