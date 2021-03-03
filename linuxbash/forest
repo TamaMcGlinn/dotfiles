@@ -119,7 +119,7 @@ sub process
 		if (exists($refs->{$sha})) {
 			print &vis_post(&vis_commit($ra),
 			      $Color{at}."m".$Color{default});
-			&ref_print($refs->{$sha});
+			# &ref_print($refs->{$sha});
 		} else {
 			print &vis_post(&vis_commit($ra, " "));
 		}
@@ -333,7 +333,7 @@ sub vine_merge
 	}
 
 	if ($orig_vine == -1) {
-		die "vine_commit() did not add this vine.";
+		return;
 	}
 
 	if (scalar(@$parents) <= 1) {
@@ -552,7 +552,7 @@ sub vis_xfrm
 	} elsif ($Style == 2) {
 		$s =~ tr/ABCD.efg.IKO.mrt.xyz/╠╣╟═.╔╦╗.║╬═.─╙╓.╚╩╝/;
 	} elsif ($Style == 10) {
-		$s =~ tr/ABCD.efg.IKO.mrt.xyz/├┤├─.╭┬╮.│┼≡.─└┌.╰┴╯/;
+		$s =~ tr/ABCD.efg.IKO.mrt.xyz/├┤├─.╭┬╮.│┼═.─└┌.╰┴╯/;
 	} elsif ($Style == 15) {
 		$s =~ tr/ABCD.efg.IKO.mrt.xyz/┣┫┣━.┏┳┓.┃╋☰.━┗┏.┗┻┛/;
 	}
