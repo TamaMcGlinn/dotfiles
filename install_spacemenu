@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p ~/.config/nvim/after/plugin
+ln -s ~/vimrc/space_menu.vim ~/.config/nvim/after/plugin/space_menu.vim
