@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Find top-level covering files of given name
+
+# Files such as Makefiles and Bazel build files
+# tend to be 'all you need' for their directory
+
+# So, for a given some/dir/Makefile we may be
+# interested in, we want to ignore (and not search)
+# any directories inside some/dir
+
+# On the other hand, if some/dir does not have
+# the file itself, then all of its directories
+# must answer for themselves
+
+# That's what this script does; find the 'top-level'
+# covering files of a particular name. The first dir
+# level only looks at directories checked in to git,
+# as an optimization
+
+find_top_file_in() {
+  if [[ -f "$1/$2" ]]; then
+    echo "$1/$2"
+    return
+  fi
+  find "$1" -mindepth 1 -maxdepth 1 -type d | while read -r subdir; do
+    find_top_file_in "$subdir" "$2"
+  done
+}
+
+# For the toplevel dirs to select, use git to avoid the large .git and gitignored dirs
+git ls-tree HEAD . | grep '^[0-9]* tree ' | awk '{ print $4; }' | (while read -r dir; do
+  if [ -d "$dir" ]; then
+    find_top_file_in "$dir" "$1"
+  fi
+done;)
