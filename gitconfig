@@ -44,6 +44,7 @@
 	gerritpush = push origin HEAD:refs/for/master
 	sed = "!f() { git ls-files -z | xargs -0 sed -i -e \"$@\"; }; f"
 	children = "!f() { git log --format='%H %P' --all --reflog | grep -F \" $1\" | cut -f1 -d' '; }; f"
+	stat = show --stat --oneline
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

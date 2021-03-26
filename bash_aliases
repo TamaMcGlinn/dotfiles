@@ -34,7 +34,11 @@ alias t='tree'
 alias td='tree -L 2'
 alias tdd='tree -L 3'
 alias tddd='tree -L 4'
-alias tags='ionice -c3 cscope -R -b && ionice -c3 ctags -R .'
+cscope() {
+  git ls-files | sed 's_^\(.*\)$_\"\1\"_' > cscope.files
+  ionice -c3 cscope -q -R -b -i cscope.files
+}
+alias tags='cscope && ionice -c3 ctags -R .'
 alias m='make'
 alias yavide="gvim --servername yavide -f -N -u /opt/yavide/.vimrc"
 alias find='ionice -c3 find'

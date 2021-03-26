@@ -1,0 +1,3 @@
+#!/bin/bash
+tag=${1:-vanilla}
+qemu-system-x86_64 -show-cursor -enable-kvm -cpu host -m 2048 -smp 2 -device virtio-mouse-pci -device virtio-keyboard-pci -device virtio-vga -hda ~/os/linux_hdd.img -usb -full-screen -net nic -net user,smb=/opt/vmshare -loadvm "$tag"
