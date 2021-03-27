@@ -7,7 +7,7 @@
 [core]
 	editor = nvr
 	autocrlf = input
-	excludesfile = /home/s1000586/.gitignore
+	excludesfile = ~/.gitignore
 [alias]
 	d = branch -d
 	pullrebase = pull --rebase

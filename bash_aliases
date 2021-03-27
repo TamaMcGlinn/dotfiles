@@ -172,3 +172,8 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+
+testjson(){
+    python -c "import json;file = open('$1');json.loads(file.read());file.close()"
+}
+
