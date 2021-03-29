@@ -15,6 +15,7 @@ alias conftmux='nvim ~/dotfiles/tmux.conf'
 alias conftig='nvim ~/.tigrc'
 alias tp=trash-put
 alias clip='xclip -selection clipboard'
+alias lg=lazygit
 alias clipout='xclip -o -selection clipboard'
 alias ..='cd ..'
 alias ...='cd ../..'
