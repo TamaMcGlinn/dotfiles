@@ -55,6 +55,12 @@ findfilegrep(){
 findcppfilegrep(){
 	ff -name "*.cpp" -or -name "*.h" | xargs -I{} grep -n -i "$1" "{}" /dev/null
 }
+
+findfilesed(){
+  ff | xargs -I{} sed -i "$@" "{}"
+}
+
+alias ffsed=findfilesed
 alias ffgrep=findfilegrep
 alias findcpp=findcppfilegrep
 
