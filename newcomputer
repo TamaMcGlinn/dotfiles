@@ -1,6 +1,6 @@
 #!/bin/bash
 # General stuff, including the requirements to build neovim
-sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip icedove curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag libsdl1.2-dev libsdl2-dev lua5.3 gettext ninja-build subversion nodejs npm virtualenv python-dev ipython python3.8-dev texlive-latex-base libgtk-3-dev wine-stable ripgrep fd-find rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev nvr fd-find cargo
+sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion nodejs npm virtualenv python-dev ipython python3.8-dev libgtk-3-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python-pip python3-pip
 
 cargo install --locked code-minimap
 
@@ -8,21 +8,29 @@ dconf write /org/gnome/desktop/sound/event-sounds "false"
 
 dconf write /org/gnome/desktop/sound/event-sounds "false"
 
-# Build NeoVim from source
-mkdir -p ~/code
-git clone https://github.com/neovim/neovim.git ~/code/neovim
-cd ~/code/neovim
-make
-sudo make install
-
-# Neovim Remote
-pip install neovim-remote
-
-# Get dein
-~/dotfiles/custom_installers/get_dein
-
-# Get trash-put
-~/dotfiles/custom_installers/get_tp
-
 # Get fzf
 ~/dotfiles/custom_installers/get_fzf
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Install neovim
+wget https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
+chmod +x nvim.appimage
+mv nvim.appimage linuxbash/nvim
+
+# Neovim python support
+pip3 install neovim
+pip2 install neovim
+pip3 install neovim-remote
+
+# Neovim node.js support
+sudo npm install -g neovim
+sudo npm install -g n
+sudo n stable
+
+# Install alire
+wget https://github.com/alire-project/alire/releases/download/v1.0.0/alr-1.0.0.AppImage
+chmod +x alr-1.0.0.AppImage
+mv alr-1.0.0.AppImage linuxbash/alr
+

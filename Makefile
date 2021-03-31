@@ -1,6 +1,3 @@
-deps:
-	sudo apt-get install tig tmux
-
 install:
 	ln -fs ~/dotfiles/bash_aliases ~/.bash_aliases
 	ln -fs ~/dotfiles/bashrc ~/.bashrc

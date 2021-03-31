@@ -11,9 +11,3 @@ cd dotfiles/
 make
 
 make install
-
-# Usage
-
-tmux
-
-vim
