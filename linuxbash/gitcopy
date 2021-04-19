@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+    echo "Illegal number of parameters"
+    echo "Usage: gitcopy existing_src/ new_repo_name"
+    exit
+fi
+
+SOURCE=${1%/}/
+TARGET=${2%/}
+echo "Copying from $SOURCE to $TARGET"
+
+git clone "$SOURCE" "$TARGET"
+FETCH=$(git --git-dir "$SOURCE".git remote -v | sed -n 's/origin[[:space:]] *\(.*\)[[:space:]]*(fetch)/\1/p');
+PUSH=$(git --git-dir "$SOURCE".git remote -v | sed -n 's/origin[[:space:]] *\(.*\)[[:space:]]*(push)/\1/p');
+git --git-dir "$TARGET"/.git remote remove origin
+git --git-dir "$TARGET"/.git remote add origin "$FETCH"
+git --git-dir "$TARGET"/.git remote set-url --push origin "$PUSH"
