@@ -1,18 +1,25 @@
 #!/bin/bash
 
-if [ "$#" -ne 2 ]; then
-    echo "Illegal number of parameters"
-    echo "Usage: gitcopy existing_src/ new_repo_name"
-    exit
+if ! [[ "$#" -eq 2 || "$#" -eq 3 && "$3" = "--bare" ]]; then
+  echo "Incorrect parameters"
+  echo "Usage: gitcopy existing_src/ new_repo_name [--bare]"
+  exit
 fi
 
 SOURCE=${1%/}/
 TARGET=${2%/}
-echo "Copying from $SOURCE to $TARGET"
+echo "Copying from $SOURCE to $TARGET $3"
 
-git clone "$SOURCE" "$TARGET"
+git clone "$3" "$SOURCE" "$TARGET"
 FETCH=$(git --git-dir "$SOURCE".git remote -v | sed -n 's/origin[[:space:]] *\(.*\)[[:space:]]*(fetch)/\1/p');
 PUSH=$(git --git-dir "$SOURCE".git remote -v | sed -n 's/origin[[:space:]] *\(.*\)[[:space:]]*(push)/\1/p');
-git --git-dir "$TARGET"/.git remote remove origin
-git --git-dir "$TARGET"/.git remote add origin "$FETCH"
-git --git-dir "$TARGET"/.git remote set-url --push origin "$PUSH"
+
+if [ "$3" = "--bare" ]; then
+  TARGET_GITDIR="$TARGET"
+else
+  TARGET_GITDIR="$TARGET"/.git
+fi
+
+git --git-dir "$TARGET_GITDIR" remote remove origin
+git --git-dir "$TARGET_GITDIR" remote add origin "$FETCH"
+git --git-dir "$TARGET_GITDIR" remote set-url --push origin "$PUSH"
