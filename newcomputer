@@ -41,6 +41,7 @@ rm ripgrep_12.1.1_amd64.deb
 
 # TODO Install xrectsel for byzanz-record-region
 
-echo "Please install this patched nerdfont. Opening GUI"
-# Install patched nerdfont font-manager
-font-manager "Ubuntu Mono Nerd Font Complete.ttf"
+# Install nerdfont
+mkdir -p ~/.local/share/fonts
+cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
+

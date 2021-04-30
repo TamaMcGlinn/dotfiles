@@ -154,3 +154,4 @@ export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O 
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
 
 source ~/dotfiles/fzf-git.bash
+source ~/dotfiles/nerdfont/i_all.sh
