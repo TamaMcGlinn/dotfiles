@@ -1,18 +1,21 @@
 #!/bin/bash
 
+set -e
+
 if ! [[ "$#" -eq 2 || "$#" -eq 3 && "$3" = "--bare" ]]; then
   echo "Incorrect parameters"
   echo "Usage: gitcopy existing_src/ new_repo_name [--bare]"
   exit
 fi
 
+# make SOURCE end in slash, but not TARGET
 SOURCE=${1%/}/
 TARGET=${2%/}
 echo "Copying from $SOURCE to $TARGET $3"
 
-git clone "$3" "$SOURCE" "$TARGET"
-FETCH=$(git --git-dir "$SOURCE".git remote -v | sed -n 's/origin[[:space:]] *\(.*\)[[:space:]]*(fetch)/\1/p');
-PUSH=$(git --git-dir "$SOURCE".git remote -v | sed -n 's/origin[[:space:]] *\(.*\)[[:space:]]*(push)/\1/p');
+# TODO also make this work if SOURCE is a bare repo
+
+git clone "$3" "$SOURCE" "$TARGET";
 
 if [ "$3" = "--bare" ]; then
   TARGET_GITDIR="$TARGET"
@@ -20,6 +23,13 @@ else
   TARGET_GITDIR="$TARGET"/.git
 fi
 
-git --git-dir "$TARGET_GITDIR" remote remove origin
-git --git-dir "$TARGET_GITDIR" remote add origin "$FETCH"
-git --git-dir "$TARGET_GITDIR" remote set-url --push origin "$PUSH"
+# Copy git config (except for --bare)
+cp "$SOURCE".git/config "$TARGET_GITDIR"/config
+if [ "$3" = "--bare" ]; then
+  sed 's/bare = .*$/bare = true/' "$TARGET_GITDIR"/config
+else
+  sed 's/bare = .*$/bare = false/' "$TARGET_GITDIR"/config
+fi
+
+# Copy any git hooks that might exist
+cp "$SOURCE"/.git/hooks/* "$TARGET_GITDIR"/hooks/
