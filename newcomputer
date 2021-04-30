@@ -39,5 +39,8 @@ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
 rm ripgrep_12.1.1_amd64.deb
 
-# Install xrectsel for byzanz-record-region
+# TODO Install xrectsel for byzanz-record-region
 
+echo "Please install this patched nerdfont. Opening GUI"
+# Install patched nerdfont font-manager
+font-manager "Ubuntu Mono Nerd Font Complete.ttf"
