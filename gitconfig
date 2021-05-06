@@ -46,6 +46,7 @@
 	children = "!f() { git log --format='%H %P' --all --reflog | grep -F \" $1\" | cut -f1 -d' '; }; f"
 	stat = show --stat --oneline
 	cp = "!f() { gitcopy \"$@\"; }; f"
+	wl = worktree list
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
