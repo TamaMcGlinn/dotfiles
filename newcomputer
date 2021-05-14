@@ -45,3 +45,7 @@ rm ripgrep_12.1.1_amd64.deb
 mkdir -p ~/.local/share/fonts
 cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
 
+# Install private vimrc
+cd ~
+git clone git@gitlab.com:Tama/private_vimrc.git
+
