@@ -50,3 +50,8 @@ cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
 
 # Install forgit
 ~/dotfiles/custom_installers/forgit
+
+# Install private vimrc
+cd ~
+git clone git@gitlab.com:Tama/private_vimrc.git
+
