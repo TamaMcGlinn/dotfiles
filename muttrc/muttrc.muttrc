@@ -25,7 +25,7 @@ set spoolfile = "+INBOX"
 # Location of drafts
 set postponed = "+[GMail]/Drafts"
 
-mailboxes +INBOX +archive +sent +drafts +spam +trash
+mailboxes +INBOX
 
 # Activate caching, as it can greatly improve speed
 set header_cache = "~/.mutt/cache/headers"
@@ -68,6 +68,43 @@ bind index N search-opposite
 bind index U toggle-new
 bind index <backtab> previous-new-then-unread
 
+######################
+#  NotMuch Settings  #
+######################
+# All the notmuch settings are documented here: https://neomutt.org/feature/notmuch
+
+# Points to the notmuch directory
+set nm_default_url = "notmuch://$HOME/.mail/work"
+# Makes notmuch return threads rather than messages
+set nm_query_type = "threads"
+# Binding for notmuch search
+bind index \\ vfolder-from-query
+
+# Tips from Gideon Wolfe: https://gideonwolfe.com/posts/workflow/neomutt/intro/
+
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+
+# unset help                           # No help bar at the top of index
+unset mark_old           # read/new is good enough for me
+set beep_new             # bell on new mails
+
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set charset = "utf-8"
+
 # Tips from Michael Lerch: http://www.mdlerch.com/emailing-mutt-and-vim-advanced-config.html
 
 # First, let's talk about format flowed text. Perhaps you believe so strongly in
@@ -83,11 +120,15 @@ bind index <backtab> previous-new-then-unread
 #
 # To use this in mutt and vim, we first have to turn on format flow in mutt so
 # that it puts a flag in the email header.
-set text_flowed
+#
+# Unfortunately, I found that thunderbird ignores the flowed text, so I'm not doing this
+# set text_flowed
 
-# bind index gg first-entry
+bind index g noop
+bind index gg first-entry
 bind index G last-entry
-# bind pager gg top
+bind pager g noop
+bind pager gg top
 bind pager G bottom
 bind pager \Cu previous-page
 bind pager \Cd next-page
@@ -96,4 +137,3 @@ set index_format="%4C %Z %[%b %d %H:%M]  %-15.15L   %s"
 
 source ~/dotfiles/muttrc/gruvbox/colors-gruvbox-shuber.muttrc
 source ~/dotfiles/muttrc/gruvbox/colors-gruvbox-shuber-extended.muttrc
-

@@ -137,6 +137,8 @@ export MANPATH="${HOME}/usr/local/share/man:${MANPATH}"
 
 export LD_LIBRARY_PATH="${HOME}/usr/local/lib:${LD_LIBRARY_PATH}"
 
+export NOTMUCH_CONFIG="${HOME}/dotfiles/notmuch/config"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source ~/dotfiles/environment

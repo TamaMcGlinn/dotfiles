@@ -1,0 +1,16 @@
+# MS Word documents
+application/msword; ~/dotfiles/office/view-attachment.sh %s "-" libreoffice
+application/vnd.ms-excel; ~/dotfiles/office/view-attachment.sh %s "-" libreoffice
+application/vnd.openxmlformats-officedocument.presentationml.presentation; ~/dotfiles/office/view-attachment.sh %s "-" libreoffice
+application/vnd.oasis.opendocument.text; ~/dotfiles/office/view-attachment.sh %s "-" libreoffice
+
+# HTML
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/plain; nvr %s
+
+#PDFs
+application/pdf; xdg-open %s pdf
+
+#Images
+image/png; /usr/bin/feh %s
+image/jpeg; /usr/bin/feh %s
