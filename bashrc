@@ -118,8 +118,8 @@ source $HOME/.bash_aliases
 
 if [[ $VIMEMBEDDEDTERMINAL ]]; then
   alias defedit=defedit_nvr
-  export EDITOR='nvr'
-  export VISUAL='nvr'
+  export EDITOR='nvr --remote-wait'
+  export VISUAL='nvr --remote-wait'
 else
   export VIMEMBEDDEDTERMINAL=true
   export EDITOR='nvim'
@@ -155,3 +155,4 @@ export SUDO_ASKPASS=/usr/bin/ssh-askpass
 
 source ~/dotfiles/fzf-git.bash
 source ~/dotfiles/nerdfont/i_all.sh
+source ~/code/forgit/forgit.plugin.sh

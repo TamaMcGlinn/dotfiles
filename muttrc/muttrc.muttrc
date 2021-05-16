@@ -1,0 +1,99 @@
+# Minimal configuration for Neomutt/Mutt and Gmail/G Suite
+# See https://jonathanh.co.uk/blog/mutt-setup.html
+
+# Decrypts passwords quietly
+# see: https://wiki.archlinux.org/index.php/Mutt#Passwords_management
+source "gpg -dq $HOME/.tmcglinn_gmail.gpg |"
+
+# Username and password for your Gmail/G Suite account
+set imap_user = "t.mcglinn@gmail.com"
+# Password assigned from decrypted file
+set imap_pass = $my_pass
+
+# Specifies the default location of your mailboxes
+set folder = "imaps://imap.gmail.com:993"
+
+# Configure Simple Mail Transfer Protocol for sending mail
+# for Gmail
+set smtp_url = "smtp://t.mcglinn@smtp.gmail.com:587"
+# for G Suite with own domain
+#set smtp_url = "smtps://t.mcglinn@gmail.com@smtp.gmail.com:587"
+set smtp_pass = $my_pass
+
+# Location of inbox
+set spoolfile = "+INBOX"
+# Location of drafts
+set postponed = "+[GMail]/Drafts"
+
+mailboxes +INBOX +archive +sent +drafts +spam +trash
+
+# Activate caching, as it can greatly improve speed
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+
+# Disable saving outgoing mail since Gmail saves them by default.
+set record = ""
+
+# Sort by threads
+set sort = threads
+# Sort threads by last date recieved - newest first
+set sort_aux = reverse-last-date-received
+# Show date in year/month/day hour:minute format
+set date_format="%y/%m/%d %I:%M%p"
+
+# Mailcap file is used to tell mutt how to open different types of file
+set mailcap_path = "~/.config/mutt/mailcap"
+
+# Tells Mutt to automatically view files with these mime types
+auto_view text/html
+# Order to try and show multipart emails
+alternative_order text/plain text/enriched text/html
+
+# use vim (nvr or directly) don't force text width (looks terible if read on a phone)
+set editor = "$EDITOR"
+
+##############
+#  Contacts  #
+##############
+
+# When looking for contacts, use this command
+set query_command= "abook --mutt-query '%s'"
+# Add current sender to address book
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+# Auto-complete email addresses by pushing tab
+bind editor <Tab> complete-query
+
+# Search back
+bind index N search-opposite
+bind index U toggle-new
+bind index <backtab> previous-new-then-unread
+
+# Tips from Michael Lerch: http://www.mdlerch.com/emailing-mutt-and-vim-advanced-config.html
+
+# First, let's talk about format flowed text. Perhaps you believe so strongly in
+# 72 character width emails that you tend to enforce this philosophy on everyone
+# you email. If you are a more reasonable person, you prefer 72 characters for
+# writing and in some circumstances reading, but certainly not while reading on a
+# phone, for example. The solution to this is format flow text.
+#
+# Essentially, any line that ends in white space is continued on the next line
+# and any line that ends not on white space terminates a paragraph. Hence, email
+# clients that respect format flow treat any newlines preceded by a space a soft
+# return and any preceded by a non-space a hard return.
+#
+# To use this in mutt and vim, we first have to turn on format flow in mutt so
+# that it puts a flag in the email header.
+set text_flowed
+
+# bind index gg first-entry
+bind index G last-entry
+# bind pager gg top
+bind pager G bottom
+bind pager \Cu previous-page
+bind pager \Cd next-page
+
+set index_format="%4C %Z %[%b %d %H:%M]  %-15.15L   %s"
+
+source ~/dotfiles/muttrc/gruvbox/colors-gruvbox-shuber.muttrc
+source ~/dotfiles/muttrc/gruvbox/colors-gruvbox-shuber-extended.muttrc
+

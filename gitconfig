@@ -8,6 +8,7 @@
 	editor = nvr
 	autocrlf = input
 	excludesfile = ~/.gitignore
+	commitGraph = true
 [alias]
 	d = branch -d
 	pullrebase = pull --rebase
@@ -56,3 +57,5 @@
 	conflictstyle = diff3
 [cola]
 	spellcheck = false
+[gc]
+	writeCommitGraph = true

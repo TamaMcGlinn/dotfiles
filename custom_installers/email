@@ -1,0 +1,3 @@
+sudo apt install abook notmuch neomutt
+git clone git@gitlab.com:Tama/addressbook.git ~/.abook
+sudo ln -s `which neomutt` /usr/bin/mutt
