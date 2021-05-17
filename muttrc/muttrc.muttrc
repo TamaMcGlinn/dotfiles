@@ -74,7 +74,7 @@ bind index <backtab> previous-new-then-unread
 # All the notmuch settings are documented here: https://neomutt.org/feature/notmuch
 
 # Points to the notmuch directory
-set nm_default_url = "notmuch://$HOME/.mail/work"
+set nm_default_url = "notmuch://$HOME/Maildir"
 # Makes notmuch return threads rather than messages
 set nm_query_type = "threads"
 # Binding for notmuch search
