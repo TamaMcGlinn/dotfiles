@@ -60,3 +60,5 @@
 	spellcheck = false
 [gc]
 	writeCommitGraph = true
+[pull]
+	rebase = false
