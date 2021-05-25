@@ -5,6 +5,8 @@ install:
 	ln -fs ~/dotfiles/tigrc ~/.tigrc
 	ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
 	ln -fs ~/dotfiles/muttrc/muttrc.muttrc ~/.muttrc
+	mkdir -p ~/.config/nvim
+	ln -fs ~/vimrc/vimrc.vim ~/.config/nvim/init.vim
 
 uninstall:
 	rm ~/.bash_aliases

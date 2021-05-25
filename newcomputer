@@ -1,6 +1,8 @@
 #!/bin/bash
 # General stuff, including the requirements to build neovim
-sudo apt-get install xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion nodejs npm virtualenv python-dev ipython python3.8-dev libgtk-3-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python-pip python3-pip libx11-dev byzanz exfat-fuse exfat-utils
+sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2
+
+mkdir ~/code
 
 cargo install --locked code-minimap
 
@@ -51,7 +53,12 @@ cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
 # Install forgit
 ~/dotfiles/custom_installers/forgit
 
+# Install vimrc
+cd ~
+git clone git@github.com:TamaMcGlinn/vimrc.git
+
 # Install private vimrc
 cd ~
 git clone git@gitlab.com:Tama/private_vimrc.git
 
+sudo gem install neovim
