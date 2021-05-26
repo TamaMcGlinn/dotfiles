@@ -4,8 +4,6 @@ sudo apt-get install curl make xclip git build-essential clang libtool libtool-b
 
 mkdir ~/code
 
-cargo install --locked code-minimap
-
 dconf write /org/gnome/desktop/sound/event-sounds "false"
 
 dconf write /org/gnome/desktop/sound/event-sounds "false"
@@ -62,3 +60,6 @@ cd ~
 git clone git@gitlab.com:Tama/private_vimrc.git
 
 sudo gem install neovim
+
+cargo install --locked code-minimap
+
