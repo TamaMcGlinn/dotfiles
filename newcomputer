@@ -1,6 +1,6 @@
 #!/bin/bash
 # General stuff, including the requirements to build neovim
-sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2
+sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 exa ripgrep
 
 mkdir ~/code
 
@@ -33,11 +33,6 @@ sudo n stable
 wget https://github.com/alire-project/alire/releases/download/v1.0.0/alr-1.0.0.AppImage
 chmod +x alr-1.0.0.AppImage
 mv alr-1.0.0.AppImage linuxbash/alr
-
-# Install ripgrep
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
-sudo dpkg -i ripgrep_12.1.1_amd64.deb
-rm ripgrep_12.1.1_amd64.deb
 
 # TODO Install xrectsel for byzanz-record-region
 
