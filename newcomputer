@@ -62,3 +62,14 @@ cd ~
 git clone git@gitlab.com:Tama/private_vimrc.git
 
 sudo gem install neovim
+
+ln -fs ~/dotfiles/bash_aliases ~/.bash_aliases
+ln -fs ~/dotfiles/bashrc ~/.bashrc
+ln -fs ~/dotfiles/gitconfig ~/.gitconfig
+ln -fs ~/dotfiles/tigrc ~/.tigrc
+ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -fs ~/dotfiles/muttrc/muttrc.muttrc ~/.muttrc
+mkdir -p ~/.config/nvim
+ln -fs ~/vimrc/vimrc.vim ~/.config/nvim/init.vim
+ln -fs ~/vimrc/coc-settings.json ~/.config/nvim/coc-settings.json
+
