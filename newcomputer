@@ -31,6 +31,16 @@ sudo npm install -g neovim
 sudo npm install -g n
 sudo n stable
 
+# Install https://github.com/iamcco/diagnostic-languageserver
+sudo apt remove cmdtest
+sudo apt remove yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update
+sudo apt-get install yarn -y
+yarn install
+yarn global add diagnostic-languageserver
+
 # Install alire
 wget https://github.com/alire-project/alire/releases/download/v1.0.0/alr-1.0.0.AppImage
 chmod +x alr-1.0.0.AppImage
