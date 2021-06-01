@@ -62,3 +62,5 @@
 	writeCommitGraph = true
 [pull]
 	rebase = false
+[status]
+	showUntrackedFiles = all
