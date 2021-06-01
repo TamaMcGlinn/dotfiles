@@ -1,4 +1,5 @@
 alias cdf='cd $(find * -type d | fzf)'
+alias v=nvim
 alias c=clear
 alias say=spd-say
 alias la='exa -l --git --header'
