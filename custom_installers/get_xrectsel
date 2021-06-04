@@ -1,0 +1,9 @@
+(
+  cd ~/code
+  git clone git@github.com:lolilolicon/xrectsel.git
+  cd xrectsel
+  ./bootstrap
+  ./configure --prefix /usr
+  make
+  sudo make DESTDIR="$directory" install
+)

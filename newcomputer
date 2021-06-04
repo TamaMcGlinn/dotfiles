@@ -3,6 +3,7 @@
 sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 exa ripgrep
 
 mkdir ~/code
+custom_installers/get_xrectsel
 
 dconf write /org/gnome/desktop/sound/event-sounds "false"
 
@@ -43,8 +44,6 @@ yarn global add diagnostic-languageserver
 wget https://github.com/alire-project/alire/releases/download/v1.0.0/alr-1.0.0.AppImage
 chmod +x alr-1.0.0.AppImage
 mv alr-1.0.0.AppImage linuxbash/alr
-
-# TODO Install xrectsel for byzanz-record-region
 
 # Install nerdfont
 mkdir -p ~/.local/share/fonts
