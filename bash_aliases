@@ -167,6 +167,8 @@ alias im_97='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -q
 alias im_98='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 98% {} {}'
 alias im_99='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 99% {} {}'
 
+alias unshit='jq -r .payload | base64 -d | jq'
+
 alias mkcd='. mkcd'
 alias magit="nvim -c MagitOnly"
 alias tiga="tig --all"

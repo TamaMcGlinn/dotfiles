@@ -1,6 +1,6 @@
 #!/bin/bash
 # General stuff, including the requirements to build neovim
-sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 exa ripgrep ssh-askpass
+sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 exa ripgrep ssh-askpass xournal
 
 mkdir ~/code
 custom_installers/get_xrectsel
@@ -69,6 +69,7 @@ cargo install --locked code-minimap
 
 
 ln -fs ~/dotfiles/bash_aliases ~/.bash_aliases
+ln -fs ~/dotfiles/gtk-config.css ~/.config/gtk-3.0/gtk.css
 ln -fs ~/dotfiles/bashrc ~/.bashrc
 ln -fs ~/dotfiles/gitconfig ~/.gitconfig
 ln -fs ~/dotfiles/tigrc ~/.tigrc
