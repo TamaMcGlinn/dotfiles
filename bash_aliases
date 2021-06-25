@@ -36,6 +36,7 @@ alias t='tree'
 alias td='tree -L 2'
 alias tdd='tree -L 3'
 alias tddd='tree -L 4'
+alias abook='( cd ~/.abook; git pull; abook; git commit -am "automatic commit"; git push origin master; )'
 cscope() {
   git ls-files | sed 's_^\(.*\)$_\"\1\"_' > cscope.files
   ionice -c3 cscope -q -R -b -i cscope.files
