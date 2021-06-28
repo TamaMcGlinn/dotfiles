@@ -1,6 +1,6 @@
 {
   "configurations": {
-    "<name>: Launch": {
+    "debugpy": {
       "adapter": "debugpy",
       "configuration": {
         "name": "<name>: Launch",
@@ -9,7 +9,6 @@
         "cwd": "${workspaceRoot}",
         "python": "python3",
         "stopOnEntry": true,
-        "console": "externalTerminal",
         "debugOptions": [],
         "program": "${file}"
       }
