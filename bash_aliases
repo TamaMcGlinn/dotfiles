@@ -1,4 +1,5 @@
 alias cdf='cd $(find * -type d | fzf)'
+alias v=nvim
 alias c=clear
 alias say=spd-say
 alias la='exa -l --git --header'
@@ -35,6 +36,7 @@ alias t='tree'
 alias td='tree -L 2'
 alias tdd='tree -L 3'
 alias tddd='tree -L 4'
+alias abook='( cd ~/.abook; git pull; abook; git commit -am "automatic commit"; git push origin master; )'
 cscope() {
   git ls-files | sed 's_^\(.*\)$_\"\1\"_' > cscope.files
   ionice -c3 cscope -q -R -b -i cscope.files
@@ -165,6 +167,8 @@ alias im_96='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -q
 alias im_97='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 97% {} {}'
 alias im_98='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 98% {} {}'
 alias im_99='find . -name "*.JPG" -or -name "*.jpg" | xargs -n 1 -I{} convert -quality 99% {} {}'
+
+alias unshit='jq -r .payload | base64 -d | jq'
 
 alias mkcd='. mkcd'
 alias magit="nvim -c MagitOnly"

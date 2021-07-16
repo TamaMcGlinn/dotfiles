@@ -161,3 +161,4 @@ SSH_AUTH_SOCK=$(ps ax | grep ssh-agent | head -n 1 | tr -s ' ' | cut -d' ' -f9)
 source ~/dotfiles/fzf-git.bash
 source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+set -eu
+
+for config_file in ~/dotfiles/vimspector/*; do
+  file_basename=${config_file##*/}
+  filetype=${file_basename%%.*}
+  vimspector_link_dir="$HOME/.vim/plugged/vimspector/configurations/linux/$filetype"
+  vimspector_link_file="$vimspector_link_dir/$file_basename"
+  mkdir -p "$vimspector_link_dir"
+  rm -f $vimspector_link_dir/$file_basename
+  ln -s $config_file $vimspector_link_dir/$file_basename
+done
+
+echo "Installed vimspector configuration defaults:"
+ls -l ~/.vim/plugged/vimspector/configurations/linux/*/*.json

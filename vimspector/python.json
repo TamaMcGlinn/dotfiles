@@ -1,0 +1,17 @@
+{
+  "configurations": {
+    "debugpy": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "<name>: Launch",
+        "type": "python",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "python": "python3",
+        "stopOnEntry": true,
+        "debugOptions": [],
+        "program": "${file}"
+      }
+    }
+  }
+}
