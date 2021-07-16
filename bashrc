@@ -158,3 +158,4 @@ export SUDO_ASKPASS=/usr/bin/ssh-askpass
 source ~/dotfiles/fzf-git.bash
 source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
+. "$HOME/.cargo/env"
