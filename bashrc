@@ -155,6 +155,9 @@ export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O 
 
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
 
+# Make password storing work over ssh
+SSH_AUTH_SOCK=$(ps ax | grep ssh-agent | head -n 1 | tr -s ' ' | cut -d' ' -f9)
+
 source ~/dotfiles/fzf-git.bash
 source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
