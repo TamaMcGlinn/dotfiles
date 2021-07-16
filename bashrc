@@ -127,7 +127,7 @@ else
 fi
 
 # Custom path dir
-export PATH="${PATH}:$HOME/dotfiles/linuxbash:$HOME/.cargo/bin:$HOME/.yarn/bin"
+export PATH="${PATH}:$HOME/dotfiles/linuxbash:$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin"
 export VIMEMBEDDEDTERMINAL=true
 
 export PKG_CONFIG_PATH="${HOME}/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH}"
