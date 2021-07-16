@@ -1,0 +1,38 @@
+#!/bin/env python3
+
+import os
+import os.path
+import sys
+
+cur_dir = sys.argv[1]
+current_file = sys.argv[2]
+
+
+# TODO Look into suggestion to use https://github.com/puremourning/vimspector/blob/setup-guide/python3/vimspector/utils.py#L561-L570
+# given in this thread https://github.com/puremourning/vimspector/issues/421
+def find_gprfile(startdir):
+    cur_dir = startdir
+    while True:
+        file_list = os.listdir(cur_dir)
+        parent_dir = os.path.dirname(cur_dir)
+        if parent_dir == cur_dir:
+            # print('No gprfile found')
+            return []
+        results = []
+        for file in file_list:
+            if file.endswith('.gpr'):
+                # print('Found ' + file)
+                results.append(file)
+        if len(results) > 0:
+            return results
+        else:
+            cur_dir = parent_dir
+
+
+# print(cur_dir)
+find_gprfile(cur_dir)
+
+# echo $1 > $HOME/first.txt
+# echo $2 > $HOME/second.txt
+
+print("~/code/ada/mkproj/bin/mkproj bullshit")

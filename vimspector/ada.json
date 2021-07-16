@@ -2,9 +2,14 @@
   "configurations": {
     "ada lldb": {
       "adapter": "CodeLLDB",
+      "variables": {
+        "GprMains": {
+          "shell" : [ "select_ada_main", "${workspaceRoot}", "${fileBasenameNoExtension}" ]
+        }
+      },
       "configuration": {
         "request": "launch",
-        "program": "${workspaceRoot}/../bin/${fileBasenameNoExtension}",
+        "program": [ "*${GprMains}" ],
         "stopOnEntry": true,
         "initCommands": ["script import math"]
       }
