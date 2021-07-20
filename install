@@ -1,72 +1,8 @@
 #!/bin/bash
-# General stuff, including the requirements to build neovim
-sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 exa ripgrep ssh-askpass xournal net-tools tmux
 
-mkdir ~/code
-custom_installers/get_xrectsel
+install_devsetup
 
-dconf write /org/gnome/desktop/sound/event-sounds "false"
-
-dconf write /org/gnome/desktop/sound/event-sounds "false"
-
-# Get fzf
-~/dotfiles/custom_installers/get_fzf
-
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# Install neovim
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-chmod +x nvim.appimage
-mv nvim.appimage linuxbash/nvim
-
-# Neovim python support
-pip3 install neovim
-pip2 install neovim
-pip3 install neovim-remote
-
-# Neovim node.js support
-sudo npm install -g neovim
-sudo npm install -g n
-sudo n stable
-
-# Install https://github.com/iamcco/diagnostic-languageserver
-sudo apt remove cmdtest
-sudo apt remove yarn
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update
-sudo apt-get install yarn -y
-yarn install
-yarn global add diagnostic-languageserver
-
-# Install alire
-wget https://github.com/alire-project/alire/releases/download/v1.0.0/alr-1.0.0.AppImage
-chmod +x alr-1.0.0.AppImage
-mv alr-1.0.0.AppImage linuxbash/alr
-
-# Install nerdfont
-mkdir -p ~/.local/share/fonts
-cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
-
-# Install email: neomutt and abook
-~/dotfiles/custom_installers/email
-
-# Install forgit
-~/dotfiles/custom_installers/forgit
-
-# Install vimrc
-cd ~
-git clone git@github.com:TamaMcGlinn/vimrc.git
-
-# Install private vimrc
-cd ~
-git clone git@gitlab.com:Tama/private_vimrc.git
-
-sudo gem install neovim
-
-cargo install --locked code-minimap
-
+install_personal
 
 ln -fs ~/dotfiles/bash_aliases ~/.bash_aliases
 ln -fs ~/dotfiles/gtk-config.css ~/.config/gtk-3.0/gtk.css
@@ -75,7 +11,4 @@ ln -fs ~/dotfiles/gitconfig ~/.gitconfig
 ln -fs ~/dotfiles/tigrc ~/.tigrc
 ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -fs ~/dotfiles/muttrc/muttrc.muttrc ~/.muttrc
-mkdir -p ~/.config/nvim
-ln -fs ~/vimrc/vimrc.vim ~/.config/nvim/init.vim
-ln -fs ~/vimrc/coc-settings.json ~/.config/nvim/coc-settings.json
 

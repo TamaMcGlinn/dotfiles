@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Install neovim
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod +x nvim.appimage
+mv nvim.appimage linuxbash/nvim
+
+# install plug
+custom_installers/get_plug
+
+# Neovim python support
+pip3 install neovim
+pip2 install neovim
+pip3 install neovim-remote
+
+# Neovim node.js support
+sudo npm install -g neovim
+sudo npm install -g n
+sudo n stable
+
+# Neovim ruby support
+sudo gem install neovim
+
+# Install https://github.com/iamcco/diagnostic-languageserver
+sudo apt remove cmdtest
+sudo apt remove yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update
+sudo apt-get install yarn -y
+yarn install
+yarn global add diagnostic-languageserver
+
+# Install code-minimap
+cargo install --locked code-minimap
