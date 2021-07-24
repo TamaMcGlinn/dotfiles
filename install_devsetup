@@ -12,8 +12,11 @@ dconf write /org/gnome/desktop/sound/event-sounds "false"
 custom_installers/get_fzf
 custom_installers/get_neovim
 custom_installers/get_alire
-custom_installers/get_ada_language_server
 custom_installers/forgit
+
+# Language Servers
+custom_installers/get_ada_language_server
+sudo npm -i -g pyright
 
 # Install nerdfont
 mkdir -p ~/.local/share/fonts
