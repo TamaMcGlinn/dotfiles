@@ -1,0 +1,17 @@
+VERSION="22.0.8"
+wget https://open-vsx.org/api/AdaCore/ada/${VERSION}/file/AdaCore.ada-${VERSION}.vsix -O als.zip
+mkdir ada_language_server
+unzip als.zip -d ada_language_server
+rm als.zip
+ln -s "${HOME}/dotfiles/ada_language_server/extension/linux/ada_language_server" ~/.local/bin/ada_language_server
+
+# # Note: below was to grab from github, but the prebuilt binary isn't released there
+# wget https://github.com/AdaCore/ada_language_server/archive/refs/tags/${VERSION}.tar.gz -O als.tar.gz
+# tar -xf als.tar.gz
+# rm als.tar.gz
+# (
+#   cd ada_language_server-${VERSION}
+#   get all the dependencies?
+#   make
+# )
+# ln -s I guess
