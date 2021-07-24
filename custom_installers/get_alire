@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Install alire
-wget https://github.com/alire-project/alire/releases/download/v1.0.0/alr-1.0.0.AppImage
-chmod +x alr-1.0.0.AppImage
-mv alr-1.0.0.AppImage linuxbash/alr
+VERSION="1.0.1"
+wget https://github.com/alire-project/alire/releases/download/v${VERSION}/alr-${VERSION}.AppImage -O linuxbash/alr
+chmod +x linuxbash/alr
+
+# Download alr bash completion script
+wget https://raw.githubusercontent.com/alire-project/alire/v${VERSION}/scripts/alr-completion.bash -O custom_completers/alr-completion.bash
 

@@ -162,3 +162,4 @@ source ~/dotfiles/fzf-git.bash
 source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+source ~/dotfiles/custom_completers/*
