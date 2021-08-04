@@ -13,6 +13,7 @@ custom_installers/get_fzf
 custom_installers/get_neovim
 custom_installers/get_alire
 custom_installers/forgit
+custom_installers/install_treesitter
 
 # Language Servers
 custom_installers/get_ada_language_server

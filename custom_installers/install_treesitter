@@ -1,0 +1,8 @@
+npm install tree-sitter-cli
+cp node_modules/tree-sitter-cli/tree-sitter ~/.local/bin/
+rm -rf node_modules/
+rm -f yarn.lock
+rm -f package.json
+rm -f package-lock.json
+rm -rf custom_installers/node_modules/
+rm -f custom_installers/yarn.lock
