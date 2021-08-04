@@ -1,0 +1,1 @@
+grep "Plug '~" ~/vimrc/plugins.vim | sed "s_.*code/vimplugins/\([^']*\)'_\1_"
