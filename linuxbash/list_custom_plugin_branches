@@ -1,0 +1,4 @@
+(
+  cd ~/code/vimplugins
+  ls | (while read dir; do cd $dir; echo ${dir} $(git rev-parse --abbrev-ref HEAD); cd ..; done)
+)
