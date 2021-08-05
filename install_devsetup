@@ -20,3 +20,4 @@ custom_installers/install_langservers
 mkdir -p ~/.local/share/fonts
 cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
 
+install_config_symlinks
