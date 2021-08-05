@@ -1,14 +1,44 @@
 #!/bin/bash
 
-install_devsetup
+read -r -p "
+Install neomutt and abook for email?
+[y/n]: " response
 
-install_personal
+if [[ "$response" = "y" ]]
+then
+  custom_installers/email
+fi
 
-ln -fs ~/dotfiles/bash_aliases ~/.bash_aliases
-ln -fs ~/dotfiles/gtk-config.css ~/.config/gtk-3.0/gtk.css
-ln -fs ~/dotfiles/bashrc ~/.bashrc
-ln -fs ~/dotfiles/gitconfig ~/.gitconfig
-ln -fs ~/dotfiles/tigrc ~/.tigrc
-ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -fs ~/dotfiles/muttrc/muttrc.muttrc ~/.muttrc
+# General stuff, including the requirements to build neovim
+sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 exa ripgrep ssh-askpass xournal net-tools tmux nnn
 
+mkdir ~/code
+
+custom_installers/get_xrectsel
+
+# turn off terminal bell
+dconf write /org/gnome/desktop/sound/event-sounds "false"
+
+custom_installers/get_fzf
+custom_installers/get_neovim
+custom_installers/get_alire
+custom_installers/forgit
+custom_installers/install_treesitter
+custom_installers/install_langservers
+
+install_vimrc
+
+read -r -p "
+Install private vimrc?
+[y/n]: " response
+
+if [[ "$response" = "y" ]]
+then
+  install_private_vimrc
+fi
+
+# Install nerdfont
+mkdir -p ~/.local/share/fonts
+cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
+
+install_config_symlinks

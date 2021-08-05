@@ -1,3 +1,4 @@
+#!/bin/bash
 
 ln -fs ~/dotfiles/bash_aliases ~/.bash_aliases
 ln -fs ~/dotfiles/gtk-config.css ~/.config/gtk-3.0/gtk.css
@@ -6,4 +7,3 @@ ln -fs ~/dotfiles/gitconfig ~/.gitconfig
 ln -fs ~/dotfiles/tigrc ~/.tigrc
 ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -fs ~/dotfiles/muttrc/muttrc.muttrc ~/.muttrc
-
