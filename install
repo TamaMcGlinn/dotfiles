@@ -26,6 +26,16 @@ custom_installers/forgit
 custom_installers/install_treesitter
 custom_installers/install_langservers
 
+read -r -p "
+Install wemux?
+[y/n]: " response
+
+if [[ "$response" = "y" ]]
+then
+  custom_installers/wemux
+fi
+
+
 install_vimrc
 
 read -r -p "
