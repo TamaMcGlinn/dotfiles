@@ -26,9 +26,9 @@ fi
 # Copy git config (except for --bare)
 cp "$SOURCE".git/config "$TARGET_GITDIR"/config
 if [ "$3" = "--bare" ]; then
-  sed 's/bare = .*$/bare = true/' "$TARGET_GITDIR"/config
+  sed -i 's/bare = .*$/bare = true/' "$TARGET_GITDIR"/config
 else
-  sed 's/bare = .*$/bare = false/' "$TARGET_GITDIR"/config
+  sed -i 's/bare = .*$/bare = false/' "$TARGET_GITDIR"/config
 fi
 
 # Copy any git hooks that might exist
