@@ -25,6 +25,7 @@ custom_installers/get_alire
 custom_installers/forgit
 custom_installers/install_treesitter
 custom_installers/install_langservers
+custom_installers/mkproj
 
 read -r -p "
 Install wemux?

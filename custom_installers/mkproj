@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+(
+  mkdir -p ~/code/ada
+  cd ~/code/ada
+  git clone git@github.com:TamaMcGlinn/mkproj
+  cd mkproj
+  gprbuild
+  ln -s ~/code/ada/mkproj/bin/mkproj ~/.local/bin/mkproj
+
+  mkdir -p ~/.config/mkproj
+  cd ~/.config/mkproj
+  git clone git@github.com:TamaMcGlinn/project_templates
+)
