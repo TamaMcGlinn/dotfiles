@@ -7,4 +7,7 @@
   mkdir -p ~/.config/nvim
   ln -fs ~/vimrc/vimrc.vim ~/.config/nvim/init.vim
   ln -fs ~/vimrc/coc-settings.json ~/.config/nvim/coc-settings.json
+
+  rm -rf ~/.config/nvim/UltiSnips
+  ln -s ~/vimrc/snippets ~/.config/nvim/UltiSnips
 )
