@@ -16,6 +16,8 @@ custom_installers/forgit
 custom_installers/install_treesitter
 custom_installers/install_langservers
 
+install_vimrc
+
 # Install nerdfont
 mkdir -p ~/.local/share/fonts
 cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/

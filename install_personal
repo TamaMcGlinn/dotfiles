@@ -2,10 +2,3 @@
 
 # Install email: neomutt and abook
 custom_installers/email
-
-# Install vimrc
-cd ~
-git clone git@github.com:TamaMcGlinn/vimrc.git
-mkdir -p ~/.config/nvim
-ln -fs ~/vimrc/vimrc.vim ~/.config/nvim/init.vim
-ln -fs ~/vimrc/coc-settings.json ~/.config/nvim/coc-settings.json
