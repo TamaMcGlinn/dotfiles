@@ -7,6 +7,8 @@ alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias view='exa --tree -l --git'
 alias fd=fdfind
 alias g=git
+alias gwl='git worktree list'
+alias gwr='git worktree remove'
 alias mux=tmuxinator
 alias gcd='cd $(git rev-parse --show-toplevel)'
 alias confvim='nvim ~/dotfiles/vimrc'
@@ -196,3 +198,7 @@ testjson(){
 mkada() { mkproj project_templates/ada_gprbuild "$1"; cd "$1"; }
 mkcpp() { mkproj project_templates/cpp_makefile "$1"; cd "$1"; }
 
+gwa() {
+  git worktree add $@
+  cd $@
+}
