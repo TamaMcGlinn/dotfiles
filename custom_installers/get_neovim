@@ -33,3 +33,7 @@ yarn global add diagnostic-languageserver
 
 # Install code-minimap
 cargo install --locked code-minimap
+
+custom_installers/get_tree-sitter
+
+
