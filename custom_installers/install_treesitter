@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 npm install tree-sitter-cli
 cp node_modules/tree-sitter-cli/tree-sitter ~/.local/bin/
 rm -rf node_modules/

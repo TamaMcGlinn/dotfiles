@@ -163,3 +163,6 @@ source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 source ~/dotfiles/custom_completers/*
+
+export PATH="$HOME/.vim/plugged/vim-flog/bin":$PATH
+

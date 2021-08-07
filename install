@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# General stuff, including the requirements to build neovim
+sudo apt-get install -y curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 ripgrep ssh-askpass xournal net-tools tmux nnn git-review npm
+
 read -r -p "
 Install neomutt and abook for email?
 [y/n]: " response
@@ -8,9 +11,6 @@ if [[ "$response" = "y" ]]
 then
   custom_installers/email
 fi
-
-# General stuff, including the requirements to build neovim
-sudo apt-get install curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim python gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python-dev python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse exfat-utils ruby python2 ripgrep ssh-askpass xournal net-tools tmux nnn git-review npm
 
 mkdir ~/code
 

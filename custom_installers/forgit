@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 (
 cd ~/code
 git clone git@github.com:wfxr/forgit.git

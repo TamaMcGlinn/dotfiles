@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 sudo apt update
-sudo apt install snapd
+sudo apt-get install -y snapd
 sudo snap install clangd --classic
