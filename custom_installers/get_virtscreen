@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+wget https://github.com/kbumsik/VirtScreen/releases/download/0.3.1/VirtScreen.AppImage
+chmod +x VirtScreen.AppImage
+mv VirtScreen.AppImage ~/.local/bin/

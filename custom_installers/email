@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt install abook notmuch neomutt
+sudo apt install -y abook notmuch neomutt
 git clone git@gitlab.com:Tama/addressbook.git ~/.abook
 sudo ln -s `which neomutt` /usr/bin/mutt
