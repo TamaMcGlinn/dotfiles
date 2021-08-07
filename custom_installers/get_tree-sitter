@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt-get install npm
 npm i tree-sitter-cli
 sudo cp node_modules/tree-sitter-cli/tree-sitter ~/.local/bin/
 rm -rf node_modules/
