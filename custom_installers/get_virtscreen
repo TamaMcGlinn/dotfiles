@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+sudo apt-get install -y x11vnc
 wget https://github.com/kbumsik/VirtScreen/releases/download/0.3.1/VirtScreen.AppImage
 chmod +x VirtScreen.AppImage
-mv VirtScreen.AppImage ~/.local/bin/
+mv VirtScreen.AppImage ~/.local/bin/virtscreen
