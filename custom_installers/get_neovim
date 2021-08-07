@@ -10,6 +10,7 @@ custom_installers/get_plug
 
 # Neovim python support
 pip3 install neovim
+custom_installers/get_pip2
 pip2 install neovim
 pip3 install neovim-remote
 
