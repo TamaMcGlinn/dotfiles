@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 wget https://github.com/rust-analyzer/rust-analyzer/releases/download/nightly/rust-analyzer-x86_64-unknown-linux-gnu.gz
 gzip -d rust-analyzer-x86_64-unknown-linux-gnu.gz
 chmod +x rust-analyzer-x86_64-unknown-linux-gnu

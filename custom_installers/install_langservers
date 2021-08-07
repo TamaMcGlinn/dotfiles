@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 custom_installers/get_ada_language_server
 custom_installers/get_clangd
 sudo npm i -g bash-language-server
