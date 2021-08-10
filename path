@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# https://askubuntu.com/questions/432217/prevent-duplicate-entries-in-path
+
+for f in `find $HOME/dotfiles/bash_path_funcs -type f -executable` ; do source "$f"; done
+
+# See ~/dotfiles/bash_path_funcs/README.bash
+
+addpath -p PATH $HOME/dotfiles/linuxbash
+addpath -p PATH $HOME/.cargo/bin
+addpath -p PATH $HOME/.yarn/bin
+addpath -p PATH /usr/local/bin
+addpath -p PATH $HOME/code/python/submodule_bundler
+addpath -p PATH $HOME/.vim/plugged/vim-flog/bin
+
+addpath -f -p PKG_CONFIG_PATH ${HOME}/usr/local/lib/pkgconfig:
+
+addpath -f -p CPATH ${HOME}/usr/local/include
+
+addpath -f -p MANPATH ${HOME}/usr/local/share/man
+
+addpath -f -p LD_LIBRARY_PATH ${HOME}/usr/local/lib
+
+addpath -p GPR_PROJECT_PATH /usr/local/lib/gnat
+addpath -p GPR_PROJECT_PATH /home/tama/code/ada/adacore/libadalang
+addpath -p GPR_PROJECT_PATH /home/tama/opt/GNAT/2020/share/gpr
+addpath -p GPR_PROJECT_PATH /home/tama/opt/GNAT/2021/share/gpr
+addpath -p GPR_PROJECT_PATH /home/tama/code/ada/gnoga/src
+addpath -p GPR_PROJECT_PATH /home/tama/code/ada/gnoga
+addpath -p GPR_PROJECT_PATH /home/tama/code/ada/adacore/gtkada/src
+
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+

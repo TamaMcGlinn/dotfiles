@@ -1,1 +1,8 @@
-export GPR_PROJECT_PATH=/usr/local/lib/gnat:/home/tama/code/ada/adacore/libadalang:/home/tama/opt/GNAT/2020/share/gpr:/home/tama/code/ada/gnoga/src:/home/tama/code/ada/gnoga:/home/tama/code/ada/adacore/gtkada/src
+#!/usr/bin/env bash
+
+export VIMEMBEDDEDTERMINAL=true
+export NOTMUCH_CONFIG="${HOME}/dotfiles/notmuch/config"
+export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+export SUDO_ASKPASS=/usr/bin/ssh-askpass
+
+source ~/dotfiles/path

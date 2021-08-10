@@ -126,34 +126,14 @@ else
   export VISUAL='nvim'
 fi
 
-# Custom path dir
-export PATH="${PATH}:$HOME/dotfiles/linuxbash:$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin"
-export VIMEMBEDDEDTERMINAL=true
-
-export PKG_CONFIG_PATH="${HOME}/usr/local/lib/pkgconfig:${PKG_CONFIG_PATH}"
-export CPATH="${HOME}/usr/local/include:${CPATH}"
-
-export MANPATH="${HOME}/usr/local/share/man:${MANPATH}"
-
-export LD_LIBRARY_PATH="${HOME}/usr/local/lib:${LD_LIBRARY_PATH}"
-
-export NOTMUCH_CONFIG="${HOME}/dotfiles/notmuch/config"
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-source ~/dotfiles/environment
 
 bind 'TAB':menu-complete
 
-# submodule_bundler
-export PATH="/home/tama/code/python/submodule_bundler":$PATH
-
-export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+source ~/dotfiles/environment
 
 # private stuff, not in this repository
 [ -f ~/.private_bashrc ] && source ~/.private_bashrc
-
-export SUDO_ASKPASS=/usr/bin/ssh-askpass
 
 # Make password storing work over ssh
 SSH_AUTH_SOCK=$(ps ax | grep ssh-agent | head -n 1 | tr -s ' ' | cut -d' ' -f9)
@@ -161,8 +141,6 @@ SSH_AUTH_SOCK=$(ps ax | grep ssh-agent | head -n 1 | tr -s ' ' | cut -d' ' -f9)
 source ~/dotfiles/fzf-git.bash
 source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
-[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-source ~/dotfiles/custom_completers/*
 
-export PATH="$HOME/.vim/plugged/vim-flog/bin":$PATH
+source ~/dotfiles/custom_completers/*
 
