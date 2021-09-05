@@ -1,13 +1,13 @@
 {
-  "configurations": {
-    "ada lldb": {
-      "adapter": "CodeLLDB",
-      "configuration": {
-        "request": "launch",
-        "program": "${workspaceRoot}/../bin/${fileBasenameNoExtension}",
-        "stopOnEntry": true,
-        "initCommands": ["script import math"]
-      }
+    "configurations": {
+        "generic ada lldb": {
+            "adapter": "CodeLLDB",
+            "configuration": {
+                "request": "launch",
+                "program": "${workspaceRoot}/bin/${fileBasenameNoExtension}",
+                "stopOnEntry": true,
+                "initCommands": ["script import math"]
+            }
+        }
     }
-  }
 }
