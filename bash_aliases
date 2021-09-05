@@ -1,4 +1,5 @@
 alias cdf='cd $(find * -type d | fzf)'
+alias alr_env='eval $(alr printenv)'
 alias v=nvim
 alias c=clear
 alias say=spd-say
