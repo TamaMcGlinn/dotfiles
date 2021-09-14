@@ -128,7 +128,7 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-bind 'TAB':menu-complete
+# bind 'TAB':menu-complete
 
 source ~/dotfiles/environment
 
