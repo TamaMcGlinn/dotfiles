@@ -198,8 +198,3 @@ testjson(){
 # mkproj shortcuts https://github.com/TamaMcGlinn/mkproj
 mkada() { mkproj project_templates/ada_gprbuild "$1"; cd "$1"; }
 mkcpp() { mkproj project_templates/cpp_makefile "$1"; cd "$1"; }
-
-gwa() {
-  git worktree add $@
-  cd $@
-}

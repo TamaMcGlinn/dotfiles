@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Go back to bare repo root if necessary
+if git rev-parse --show-toplevel > /dev/null 2>&1; then cd $(git rev-parse --show-toplevel)/..; fi
+
+git worktree add $@
+cd $@

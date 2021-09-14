@@ -48,7 +48,7 @@
 	stat = show --stat --oneline
 	cp = "!f() { gitcopy \"$@\"; }; f"
 	wl = worktree list
-	wa = worktree add
+	wa = "!f() { gwa \"$@\"; }; f"
 	wr = worktree remove
 [filter "lfs"]
 	clean = git-lfs clean -- %f
