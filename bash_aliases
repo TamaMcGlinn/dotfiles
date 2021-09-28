@@ -21,6 +21,7 @@ alias tp=trash-put
 alias clip='xclip -selection clipboard'
 alias lg=lazygit
 alias clipout='xclip -o -selection clipboard'
+alias port_status='netstat -ant | grep '
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
