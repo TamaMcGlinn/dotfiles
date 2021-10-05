@@ -1,0 +1,13 @@
+{
+    "configurations": {
+        "a.out": {
+            "adapter": "vscode-cpptools",
+            "configuration": {
+                "request": "launch",
+                "program": "${workspaceRoot}/a.out",
+                "stopOnEntry": true,
+                "initCommands": []
+            }
+        }
+    }
+}
