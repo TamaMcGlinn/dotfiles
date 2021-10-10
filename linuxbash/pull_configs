@@ -3,8 +3,14 @@
 import os
 from pathlib import Path
 
-CONFIGS = ["~/dotfiles", "~/vimrc", "~/private_vimrc", "~/.config/mkproj/project_templates"]
+CONFIGS = [
+    "~/dotfiles",
+    "~/vimrc",
+    "~/private_vimrc",
+    "~/.config/mkproj/project_templates",
+]
 
 for dir in CONFIGS:
+    print(dir)
     config_dir = str(Path(dir).expanduser())
     os.system(f"git -C {config_dir} pull")
