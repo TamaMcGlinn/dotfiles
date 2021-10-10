@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import os
+import argparse
+import re
+
+parser = argparse.ArgumentParser()
+parser.add_argument("file")
+args = parser.parse_args()
+
+class_definition_regex = re.compile(r"([^ :]*)::")
+
+
+def get_class_name():
+    with open(args.file) as file:
+        for line in file:
+            match = re.search(class_definition_regex, line)
+            if match:
+                return match.group(1)
+    # if no declarations, fall back to using the filename
+    filename = os.path.basename(args.file)
+    f_name, f_ext = os.path.splitext(filename)
+    return f_name.replace("_", "")
+
+
+if __name__ == "__main__":
+    print(get_class_name())
