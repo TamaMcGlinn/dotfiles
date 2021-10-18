@@ -141,3 +141,4 @@ source ~/code/forgit/forgit.plugin.sh
 
 source ~/dotfiles/custom_completers/*
 
+ulimit -c unlimited
