@@ -2,7 +2,8 @@
 
 export VIMEMBEDDEDTERMINAL=true
 export NOTMUCH_CONFIG="${HOME}/dotfiles/notmuch/config"
-export FZF_DEFAULT_OPTS="--height 90% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_OPTS="--height 90% --layout=reverse"
+export FZF_ALT_C_OPTS="--preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 export SUDO_ASKPASS=/usr/bin/ssh-askpass
 
 source ~/dotfiles/path
