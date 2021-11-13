@@ -1,6 +1,6 @@
 alias cdf='cd $(find * -type d | fzf)'
 alias alr_env='eval $(alr printenv)'
-alias v=$EDITOR
+alias v='$EDITOR'
 alias c=clear
 alias say=spd-say
 alias la='exa -l --git --header'
