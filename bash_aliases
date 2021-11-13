@@ -3,6 +3,7 @@ alias alr_env='eval $(alr printenv)'
 alias v='$EDITOR'
 alias c=clear
 alias say=spd-say
+alias sync_configs='pull_configs.py && push_configs.py'
 alias la='exa -l --git --header'
 alias publickey='xclip -sel clip < ~/.ssh/id_rsa.pub'
 alias view='exa --tree -l --git'
