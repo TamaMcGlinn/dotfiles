@@ -118,8 +118,8 @@ source $HOME/.bash_aliases
 
 if [[ $VIMEMBEDDEDTERMINAL ]]; then
   alias defedit=defedit_nvr
-  export EDITOR='nvr --remote-wait'
-  export VISUAL='nvr --remote-wait'
+  export EDITOR='nvr'
+  export VISUAL='nvr'
 else
   export VIMEMBEDDEDTERMINAL=true
   export EDITOR='nvim'
