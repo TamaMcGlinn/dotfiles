@@ -116,12 +116,24 @@ source $HOME/dotfiles/linuxbash/git-completion.bash
 __git_complete g __git_main
 source $HOME/.bash_aliases
 
-if [[ $VIMEMBEDDEDTERMINAL ]]; then
-  alias defedit=defedit_nvr
-  export EDITOR='nvr'
-  export VISUAL='nvr'
+if [[ $SOURCED_BEFORE ]]; then
+  if [[ -n "$TMUX" ]]; then
+    if [[ $SOURCED_BEFORE_IN_TMUX ]]; then
+      alias defedit=defedit_nvr
+      export EDITOR='nvr'
+      export VISUAL='nvr'
+    else
+      export SOURCED_BEFORE_IN_TMUX=true
+      export EDITOR='nvim'
+      export VISUAL='nvim'
+    fi
+  else
+    alias defedit=defedit_nvr
+    export EDITOR='nvr'
+    export VISUAL='nvr'
+  fi
 else
-  export VIMEMBEDDEDTERMINAL=true
+  export SOURCED_BEFORE=true
   export EDITOR='nvim'
   export VISUAL='nvim'
 fi
