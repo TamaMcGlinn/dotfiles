@@ -13,6 +13,7 @@ alias gwl='git worktree list'
 alias gwr='git worktree remove'
 alias mux=tmuxinator
 alias gcd='cd $(git rev-parse --show-toplevel)'
+alias gcdu='gcd; cd ..; gcd'
 alias confvim='nvim ~/dotfiles/vimrc'
 alias confbash='nvim ~/dotfiles/bash_aliases'
 alias confgit='nvim ~/dotfiles/gitconfig'
