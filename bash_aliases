@@ -1,3 +1,4 @@
+alias icat="kitty +kitten icat"
 alias cdf='cd $(find * -type d | fzf)'
 alias browsh='docker run --rm -it browsh/browsh'
 alias alr_env='eval $(alr printenv)'
