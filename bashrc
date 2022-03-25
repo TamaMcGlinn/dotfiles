@@ -200,5 +200,6 @@ source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
 
 source ~/dotfiles/custom_completers/*
+export WWW_HOME=https://www.duckduckgo.com/
 
 ulimit -c unlimited
