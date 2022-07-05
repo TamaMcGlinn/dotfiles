@@ -66,6 +66,9 @@ findfilegrep(){
 findcppfilegrep(){
 	ff -name "*.cpp" -or -name "*.h" | xargs -I{} grep -n -i "$1" "{}" /dev/null
 }
+sorti(){
+  sort $1 > tmpsortingfile; mv tmpsortingfile $1;
+}
 
 findfilesed(){
   ff | xargs -I{} sed -i "$@" "{}"
