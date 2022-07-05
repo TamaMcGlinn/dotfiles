@@ -164,12 +164,14 @@ source $HOME/dotfiles/linuxbash/git-completion.bash
 __git_complete g __git_main
 source $HOME/.bash_aliases
 
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
 if [[ $SOURCED_BEFORE ]]; then
   if [[ -n "$TMUX" ]]; then
     if [[ $SOURCED_BEFORE_IN_TMUX ]]; then
       alias defedit=defedit_nvr
-      export EDITOR='nvr'
-      export VISUAL='nvr'
+      export EDITOR='nvr --nostart'
+      export VISUAL='nvr --nostart'
     else
       export SOURCED_BEFORE_IN_TMUX=true
       export EDITOR='nvim'
@@ -177,8 +179,8 @@ if [[ $SOURCED_BEFORE ]]; then
     fi
   else
     alias defedit=defedit_nvr
-    export EDITOR='nvr'
-    export VISUAL='nvr'
+    export EDITOR='nvr --nostart'
+    export VISUAL='nvr --nostart'
   fi
 else
   export SOURCED_BEFORE=true

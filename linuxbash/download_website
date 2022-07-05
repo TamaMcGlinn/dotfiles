@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+ARGS=(
+  "--mirror"
+  "-x"
+  "--convert-links"
+  "--page-requisites"
+  "--no-parent"
+  "--no-clobber" 
+  "--html-extension" 
+  "--restrict-file-names=unix" 
+  '-U "Opera 11.0"'
+  "--content-on-error" 
+)
+cd ~/offline_websites || exit
+wget "${ARGS[@]}" -P . "$1"

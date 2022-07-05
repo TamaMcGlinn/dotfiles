@@ -1,4 +1,0 @@
-#!/bin/bash
-echo '<html><head><META http-equiv="refresh" content="0;' > $2
-echo "URL=$1" >> $2
-echo '"></head></html>' >> $2
