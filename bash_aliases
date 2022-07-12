@@ -60,11 +60,25 @@ alias ff='ionice -c3 find . -type f'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+zc(){
+  history -a
+  check
+  history -r
+}
+
+scriptit(){
+  history -a
+  script_from_history $@
+}
+
 findfilegrep(){
 	ff | xargs -I{} grep -n -i "$1" "{}" /dev/null
 }
 findcppfilegrep(){
 	ff -name "*.cpp" -or -name "*.h" | xargs -I{} grep -n -i "$1" "{}" /dev/null
+}
+sorti(){
+  sort $1 > tmpsortingfile; mv tmpsortingfile $1;
 }
 
 findfilesed(){

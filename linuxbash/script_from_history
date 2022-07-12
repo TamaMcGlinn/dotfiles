@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Put the last X lines into a script called Y
+# Usage example: `scriptit bam 3` puts the last 3 commands into a new script called bam
+
+# Note this doesn't work by itself,
+# it requires the addition of the following function to your ~/.bashrc
+# so that, inside the terminal session, you save the history prior to
+# calling this script.
+
+# scriptit(){
+#   history -a
+#   script_from_history $@
+# }
+
+SCRIPT_NAME=$1
+SCRIPT="$HOME/dotfiles/linuxbash/$SCRIPT_NAME"
+NUMBER_OF_LINES_BACK=$(( $2 * 2 + 2 ))
+
+# shabang line
+echo \#\!/bin/bash > "$SCRIPT"
+# and x number of lines of history to new script
+tail -n "$NUMBER_OF_LINES_BACK" "$HOME/.bash_history" \
+  | head -n $(( NUMBER_OF_LINES_BACK - 2 )) \
+  | grep -v "^#" >> "$SCRIPT"; # remove timestamp comments
+chmod u+x "$SCRIPT";
+
+# Open the newly created script with your editor
+$EDITOR "$SCRIPT"
