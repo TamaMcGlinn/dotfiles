@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# pipe find into this script, passing a string to grep for as a parameter
+xargs -L1 bash -c 'if $(grep -q "'"$1"'" "$0"); then echo $0; fi'

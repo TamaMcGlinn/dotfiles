@@ -12,8 +12,15 @@ PROJECT_NAME="${PROJECT_FILE_WITHOUT_EXTENSION##*/}"
 
 {
 echo "aggregate project ${PROJECT_NAME}_env is";
-echo "" >> "${PROJECT_FILE_WITHOUT_EXTENSION}_env.gpr";
-alr printenv | \
+echo "";
+echo "   for Project_Files use (\"$PROJECT_FILE_WITHOUT_EXTENSION.gpr\");";
+echo "";
+echo "   for Project_Path use (";
+alr printenv | grep 'GPR_PROJECT_PATH' | cut -d'=' -f2 | grep -oh "${PWD}[^:]*" | \
+  sed "s@$PWD/@      \"@g" | grep -v "${PWD}" | sed '$ ! s/$/",/' | sed 's/\([^,]\)$/\1"/'
+echo "   );";
+echo "";
+alr printenv | grep -v '^export \(GPR_PROJECT_\)\?PATH=' | \
   sed 's/export /   for External ("/' | \
   sed 's/=/") use /' | \
   sed 's/$/;/';
