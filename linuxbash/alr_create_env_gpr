@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -e
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters."
+    echo "Did you mean one of these:"
+    find . -maxdepth 1 -type f -iname '*.gpr' | sed "s@^@$0 @"
+    exit 1
+fi
+
+PROJECT_FILE_WITHOUT_EXTENSION="${1%.*}"
+PROJECT_NAME="${PROJECT_FILE_WITHOUT_EXTENSION##*/}"
+
+{
+echo "aggregate project ${PROJECT_NAME}_env is";
+echo "" >> "${PROJECT_FILE_WITHOUT_EXTENSION}_env.gpr";
+alr printenv | \
+  sed 's/export /   for External ("/' | \
+  sed 's/=/") use /' | \
+  sed 's/$/;/';
+echo "";
+echo "end ${PROJECT_NAME}_env;";
+} > "${PROJECT_FILE_WITHOUT_EXTENSION}_env.gpr"
