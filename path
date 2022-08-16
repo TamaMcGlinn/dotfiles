@@ -15,6 +15,7 @@ addpath -p PATH $HOME/.vim/plugged/vim-flog/bin
 addpath -p PATH $HOME/code/vimplugins/vim-flog/bin
 addpath -p PATH $HOME/code/ada/mkproj/bin
 addpath -p PATH $HOME/go/bin
+addpath -p PATH /opt/GNAT/2021/bin
 
 addpath -f -p PKG_CONFIG_PATH ${HOME}/usr/local/lib/pkgconfig:
 
