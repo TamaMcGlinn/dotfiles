@@ -216,4 +216,6 @@ testjson(){
 
 # mkproj shortcuts https://github.com/TamaMcGlinn/mkproj
 mkada() { mkproj project_templates/ada_gprbuild "$1"; cd "$1"; }
+mkbada() { mkproj project_templates/ada_bazel "$1"; cd "$1"; }
 mkcpp() { mkproj project_templates/cpp_makefile "$1"; cd "$1"; }
+mkvim() { mkproj project_templates/vimplugin "$1"; mv "$1" "vim-$1"; cd "vim-$1"; }
