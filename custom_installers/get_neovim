@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# Install neovim
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-chmod +x nvim.appimage
-mv nvim.appimage linuxbash/nvim
+custom_installers/update_neovim
 
 # install plug
 custom_installers/get_plug
