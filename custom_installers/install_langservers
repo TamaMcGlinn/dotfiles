@@ -7,3 +7,4 @@ yarn global add vim-language-server
 # sudo npm -i -g pyright
 pip3 install 'python-lsp-server[all]'
 custom_installers/get_rust-analyzer
+go install github.com/mattn/efm-langserver@latest
