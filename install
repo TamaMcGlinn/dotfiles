@@ -38,6 +38,9 @@ custom_installers/mkproj
 # install markdownfmt https://github.com/tianon/markdownfmt
 go install github.com/tianon/markdownfmt@latest
 
+# install buildifier
+go install github.com/bazelbuild/buildtools/buildifier@latest
+
 read -r -p "
 Install wemux?
 [y/n]: " response
