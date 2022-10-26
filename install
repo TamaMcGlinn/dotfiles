@@ -6,6 +6,8 @@ sudo apt-get install -y curl make xclip git build-essential clang libtool libtoo
 # Go needs snap install to support installing things
 sudo snap install go --classic
 
+pip3 install trash-cli
+
 # vim-bible requirements
 sudo apt-get install -y diatheke sword-text-dutsvv sword-text-kjv
 
