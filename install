@@ -41,6 +41,9 @@ go install github.com/tianon/markdownfmt@latest
 # install buildifier
 go install github.com/bazelbuild/buildtools/buildifier@latest
 
+# install docker
+sudo snap install docker
+
 read -r -p "
 Install wemux?
 [y/n]: " response
