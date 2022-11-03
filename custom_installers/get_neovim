@@ -10,6 +10,7 @@ pip3 install neovim
 custom_installers/get_pip2
 pip2 install neovim
 pip3 install neovim-remote
+pip3 install --upgrade pynvim
 
 # Neovim node.js support
 sudo npm install -g neovim
