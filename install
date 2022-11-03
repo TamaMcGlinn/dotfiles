@@ -3,7 +3,7 @@
 curl -fsSL https://deb.nodesource.com/setup_14.x | sudo bash -
 
 # General stuff, including the requirements to build neovim
-sudo apt-get install -y curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse ruby python2 ripgrep ssh-askpass xournal net-tools tmux nnn git-review npm rename nodejs
+sudo apt-get install -y curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse ruby python2 ripgrep ssh-askpass xournal net-tools tmux nnn git-review npm rename nodejs fd-find
 
 # Go needs snap install to support installing things
 sudo snap install go --classic
