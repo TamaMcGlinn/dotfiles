@@ -1,7 +1,8 @@
 #!/bin/bash
 
-sudo git clone git://github.com/TamaMcGlinn/wemux.git /usr/local/share/wemux
+echo $HOME | xargs -I{} sudo git clone git@github.com:TamaMcGlinn/wemux.git /usr/local/share/wemux --config core.sshCommand="ssh -i {}/.ssh/id_rsa"
 
+sudo rm -rf /usr/local/bin/wemux
 sudo ln -s /usr/local/share/wemux/wemux /usr/local/bin/wemux
 
 sudo cp /usr/local/share/wemux/wemux.conf.example /usr/local/etc/wemux.conf

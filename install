@@ -50,7 +50,7 @@ Install wemux?
 
 if [[ "$response" = "y" ]]
 then
-  custom_installers/wemux
+  custom_installers/install_wemux
 fi
 
 
