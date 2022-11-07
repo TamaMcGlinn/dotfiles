@@ -41,7 +41,10 @@ custom_installers/mkproj
 go install github.com/tianon/markdownfmt@latest
 
 # install buildifier
-go install github.com/bazelbuild/buildtools/buildifier@latest
+# go install github.com/bazelbuild/buildtools/buildifier@latest
+wget https://github.com/bazelbuild/buildtools/releases/download/5.1.0/buildifier-linux-amd64
+mv buildifier-linux-amd64 linuxbash/buildifier
+chmod +x linuxbash/buildifier
 
 # install docker
 sudo snap install docker
