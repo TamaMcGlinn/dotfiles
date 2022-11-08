@@ -46,6 +46,11 @@ wget https://github.com/bazelbuild/buildtools/releases/download/5.1.0/buildifier
 mv buildifier-linux-amd64 linuxbash/buildifier
 chmod +x linuxbash/buildifier
 
+# lua formatters
+custom_installers/install_luarocks
+sudo luarocks install --server=https://luarocks.org/dev luaformatter
+custom_installers/install_lua_language_server
+
 # install docker
 sudo snap install docker
 

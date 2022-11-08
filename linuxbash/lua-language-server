@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec "${HOME}/dotfiles/linuxbash/lua_langserver_files/bin/lua-language-server" "$@"

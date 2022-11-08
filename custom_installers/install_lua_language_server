@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Install lua language server
+VERSION="3.6.0"
+wget https://github.com/sumneko/lua-language-server/releases/download/${VERSION}/lua-language-server-${VERSION}-linux-x64.tar.gz
+mkdir linuxbash/lua_langserver_files
+tar -xf lua-language-server-${VERSION}-linux-x64.tar.gz -C linuxbash/lua_langserver_files
+rm lua-language-server-${VERSION}-linux-x64.tar.gz
