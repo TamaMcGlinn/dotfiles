@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+DIR=$(readlink -f "$1")
+# Alternative: use current working dir; but then also replace ${@:2} with $@ on line 8
+# and $1 with $PWD when calling realpath
+# DIR=$PWD
+
+while
+  RESULT=$(find "$DIR"/ -maxdepth 1 "${@:2}")
+  # echo "Debugging upfind - search in $DIR gives: $RESULT"
+  [[ -z $RESULT ]] && [[ "$DIR" != "/" ]]
+do DIR=$(dirname "$DIR"); done
+
+realpath --relative-to="$1" "$RESULT"
+# Alternative: output absolute path
+# echo "$RESULT"
