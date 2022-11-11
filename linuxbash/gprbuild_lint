@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# Original reason for the script: gcc (and gprbuild) output only the filename,
+# not the full path as required by efm-langserver
+FULLPATH=$(readlink -f "$1")
+FILE_NAME=${FULLPATH##*/}
+
+# gcc -c only works on package bodies (*.adb)
+if [[ $1 == *.adb ]]; then
+  # when treating a .adb file, we can pass -c [thefile] to only compile that file
+  # this is much quicker than compiling the whole project
+  COMPILE="-c $1"
+else
+  CORRESPONDING_ADB="${1%%.ads}.adb"
+  if test -f "$CORRESPONDING_ADB"; then
+    # compile the corresponding .adb file
+    COMPILE="-c $CORRESPONDING_ADB"
+  else
+    # fallback: compile the whole project
+    COMPILE=""
+  fi
+fi
+
+# Find *.gpr upwards from source file
+# TODO allow overriding GPRFILE from neovim, for multi-gpr projects - in that case, do not search
+DIR=$(dirname "$FULLPATH")
+while
+  GPRFILE=$(find "$DIR"/ -maxdepth 1 -type f -iname "*.gpr")
+  [[ -z $GPRFILE ]] && [[ "$DIR" != "/" ]]
+do DIR=$(dirname "$DIR"); done
+
+if [[ -n $GPRFILE ]]; then
+  PROJECT="-P $GPRFILE"
+fi
+
+COMMAND="gprbuild -k ${PROJECT} ${COMPILE}"
+$COMMAND 2>&1 | sed "s@${FILE_NAME}@${FULLPATH}@"
+
+# Debugging line to get info directly from linter into file
+# if [[ $COMMAND == *-c* ]]; then
+#   echo "src/two.adb:03:00: Note: yes ${COMMAND}"
+# fi
+
+
+# To use this script, use efm-langserver https://github.com/mattn/efm-langserver
+# and a NeoVim LSP configuration such as:
+#
+# require"lspconfig".efm.setup {
+#     init_options = {documentFormatting = true},
+#     settings = {
+#         rootMarkers = {".git/"},
+#         languages = {
+#             ada = {
+#                 {
+#                     lintCommand = 'gprbuild_lint',
+#                     lintIgnoreExitCode = true,
+#                     lintFormats = {
+#                         '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m',
+#                         '%f:%l:%c: %tote: %m'
+#                     }
+#                 }
+#             }
+#         }
+#     }
+# }
