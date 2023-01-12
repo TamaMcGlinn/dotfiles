@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import threading
+import pyinotify
+from pynvim import attach
+
+WORK_DIR = sys.argv[1]
+GIT_DIR = sys.argv[2]
+BUF_NR = sys.argv[3]
+print(f"Listening for changes in working directory {WORK_DIR},"
+      f"git directory {GIT_DIR}, tracked by buffer {BUF_NR}")
+
+# copied from https://github.com/salesforce/decorator-operations
+def debounce(wait_time):
+    """
+    Decorator that will debounce a function so that it is called after wait_time seconds
+    If it is called multiple times, will wait for the last call to be debounced and run only this one.
+    """
+
+    def decorator(function):
+        def debounced(*args, **kwargs):
+            def call_function():
+                debounced._timer = None
+                return function(*args, **kwargs)
+            # if we already have a call to the function currently waiting to be executed, reset the timer
+            if debounced._timer is not None:
+                debounced._timer.cancel()
+
+            # after wait_time, call the function provided to the decorator with its arguments
+            debounced._timer = threading.Timer(wait_time, call_function)
+            debounced._timer.start()
+
+        debounced._timer = None
+        return debounced
+
+    return decorator
+
+
+class EventProcessor(pyinotify.ProcessEvent):
+    _methods = ["IN_CREATE",
+                "IN_OPEN",
+                "IN_ACCESS",
+                "IN_ATTRIB",
+                "IN_CLOSE_NOWRITE",
+                "IN_CLOSE_WRITE",
+                "IN_DELETE",
+                "IN_DELETE_SELF",
+                "IN_IGNORED",
+                "IN_MODIFY",
+                "IN_MOVE_SELF",
+                "IN_MOVED_FROM",
+                "IN_MOVED_TO",
+                "IN_Q_OVERFLOW",
+                "IN_UNMOUNT",
+                "default"]
+
+
+def process_generator(cls, method):
+    def _method_name(_, __):
+        update()
+    _method_name.__name__ = f"process_{method}"
+    setattr(cls, _method_name.__name__, _method_name)
+
+
+nvim = attach('socket', path=os.environ['NVIM_LISTEN_ADDRESS'])
+
+
+@debounce(5)
+def update():
+    """ Tell NeoVim to update flog. """
+    # nvim.command("call flog#populate_graph_buffer()")
+    print("Update")
+
+
+for m in EventProcessor._methods:
+    process_generator(EventProcessor, m)
+
+watch_manager = pyinotify.WatchManager()
+event_notifier = pyinotify.Notifier(watch_manager, EventProcessor())
+
+for path in [WORK_DIR, GIT_DIR]:
+    watch_manager.add_watch(os.path.abspath(path), pyinotify.ALL_EVENTS)
+event_notifier.loop()
