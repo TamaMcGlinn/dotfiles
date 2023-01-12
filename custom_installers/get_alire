@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install alire
-VERSION="1.2.0"
+VERSION="1.2.1"
 wget https://github.com/alire-project/alire/releases/download/v${VERSION}/alr-${VERSION}-x86_64.AppImage -O linuxbash/alr
 chmod +x linuxbash/alr
 
