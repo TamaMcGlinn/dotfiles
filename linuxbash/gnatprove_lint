@@ -18,7 +18,7 @@ if [[ -n $GPRFILE ]]; then
 fi
 
 COMMAND="gnatprove ${PROJECT}"
-$COMMAND 2>&1 | sed "s@${FILE_NAME}@${FULLPATH}@"
+# $COMMAND 2>&1 | sed "s@${FILE_NAME}@${FULLPATH}@"
 
 # Debugging line to get info directly from linter into file
 # echo "src/two.adb:03:00: Note: yes ${COMMAND}"
