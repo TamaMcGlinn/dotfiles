@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+PORT=${1:-5970}
+
+INTERACTIVE="-viewonly"
+
+# https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash#13359121
+for i in "$@"
+do
+case $i in
+    --interactive)
+    INTERACTIVE=""
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+
+echo "Click the window you wish to share"
+window_id=$(xwininfo | sed -n 's/^xwininfo: Window id: \([^ ]*\) .*$/\1/p')
+
+# print local IP address
+ifconfig | grep 'inet 192.168'
+
+x11vnc -id "$window_id" -autoport "$PORT" -defer 0 -deferupdate 0 -noremote "$INTERACTIVE" -shared -forever
