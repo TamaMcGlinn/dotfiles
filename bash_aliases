@@ -68,6 +68,12 @@ zc(){
   history -r
 }
 
+zr(){
+  history -a
+  run_py_jobs
+  history -r
+}
+
 scriptit(){
   history -a
   script_from_history $@
