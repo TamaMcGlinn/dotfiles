@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rename 'use POSIX qw(strftime); s/^/strftime("%Y-%m-%d.",localtime((stat $_)[9]))/e' *.MP4
