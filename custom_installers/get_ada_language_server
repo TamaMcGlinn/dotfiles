@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="22.0.8"
+VERSION="23.0.14"
 wget https://open-vsx.org/api/AdaCore/ada/${VERSION}/file/AdaCore.ada-${VERSION}.vsix -O als.zip
 mkdir ada_language_server
 unzip als.zip -d ada_language_server
