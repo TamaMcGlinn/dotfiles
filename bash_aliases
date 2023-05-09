@@ -1,3 +1,4 @@
+alias ul=ultralist
 alias grevm="python3 ~/code/git-review/git_review/cmd.py --message"
 alias icat="kitty +kitten icat"
 alias unshallow="git fetch --unshallow"

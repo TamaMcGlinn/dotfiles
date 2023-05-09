@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+VERSION="1.7.0"
+wget https://github.com/gammons/ultralist/releases/download/${VERSION}/ultralistlinux_amd64.tar.gz
+tar -xf ultralist*.tar.gz
+rm -f ultralist*.tar.gz
+mv ultralist linuxbash/
+
+mkdir -p ~/important
+ln -s ~/important/.todos.json ~/
