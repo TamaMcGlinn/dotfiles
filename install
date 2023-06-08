@@ -56,6 +56,9 @@ custom_installers/install_lua_language_server
 # install docker
 sudo snap install docker
 
+# install git-delta
+cargo install git-delta
+
 read -r -p "
 Install wemux?
 [y/n]: " response
