@@ -200,6 +200,7 @@ source ~/dotfiles/environment
 source ~/dotfiles/fzf-git.bash
 source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
+source ~/dotfiles/.gita-completion.bash
 
 source ~/dotfiles/custom_completers/*
 export WWW_HOME=https://www.duckduckgo.com/
