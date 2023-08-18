@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+cd "$HOME/.vim/plugged"
+find . -maxdepth 1 -type d | grep -v '^.$\|^./.git$' | (while read -r dir; do
+  (cd "$dir"
+  URL=$(git remote get-url origin)
+  if [[ $URL == "git@"* ]]; then
+    NEWURL=$(echo "$URL" | sed 's_git@\([^:]*\):_https://\1/_')
+    echo "Changing $dir from $URL to $NEWURL"
+    git remote set-url origin "$NEWURL"
+  fi
+  )
+done)
