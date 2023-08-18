@@ -10,7 +10,7 @@ sudo apt-get install -y nodejs
 # Go needs snap install to support installing things
 sudo snap install go --classic
 
-pip3 install trash-cli gita
+pip3 install trash-cli gita openai
 
 # vim-bible requirements
 sudo apt-get install -y diatheke sword-text-dutsvv sword-text-kjv
