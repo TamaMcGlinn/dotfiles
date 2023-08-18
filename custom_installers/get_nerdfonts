@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Install nerd fonts https://www.nerdfonts.com/
+VERSION="3.0.2"
+wget https://github.com/ryanoasis/nerd-fonts/archive/refs/tags/v${VERSION}.tar.gz -O nerd-fonts.tar.gz
+
+tar -xf nerd-fonts.tar.gz
+(
+  cd nerd-fonts-${VERSION}
+  ./install.sh
+)
+rm -rf nerd-fonts*

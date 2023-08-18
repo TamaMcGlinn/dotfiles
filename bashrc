@@ -198,7 +198,6 @@ source ~/dotfiles/environment
 [ -f ~/.private_bashrc ] && source ~/.private_bashrc
 
 source ~/dotfiles/fzf-git.bash
-source ~/dotfiles/nerdfont/i_all.sh
 source ~/code/forgit/forgit.plugin.sh
 source ~/dotfiles/.gita-completion.bash
 
