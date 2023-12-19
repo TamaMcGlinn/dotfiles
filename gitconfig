@@ -10,6 +10,7 @@
 	excludesfile = ~/.gitignore
 	commitGraph = true
 [alias]
+	h = rev-parse HEAD
 	d = branch -d
 	pullrebase = pull --rebase
 	D = branch -D
