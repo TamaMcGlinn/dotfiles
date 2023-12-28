@@ -24,7 +24,7 @@
 	s = status
 	su = submodule update --init --recursive
 	updateone = "submodule update --init --"
-	ss = submodule status
+	ss = submodule status --recursive
 	co = checkout
 	cob = checkout -B
 	p = "!f() { git push --set-upstream origin --recurse-submodules=check `git branch | grep "^*" | cut -d' ' -f2`; }; f"
