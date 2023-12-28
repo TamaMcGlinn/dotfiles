@@ -1,0 +1,12 @@
+#!/bin/bash
+# https://github.com/remote-android/redroid-doc
+
+docker run -itd --rm --privileged \
+    --pull always \
+    -v ~/data:/data \
+    -p 5555:5555 \
+    redroid/redroid:11.0.0-latest
+
+adb connect localhost:5555
+
+scrcpy -s localhost:5555
