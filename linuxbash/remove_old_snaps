@@ -1,0 +1,10 @@
+#!/bin/bash
+# from https://superuser.com/a/1330590/613775
+# Removes old revisions of snaps
+# CLOSE ALL SNAPS BEFORE RUNNING THIS
+set -eu
+
+LANG=C snap list --all | awk '/disabled/{print $1, $3}' |
+    while read snapname revision; do
+        sudo snap remove "$snapname" --revision="$revision"
+    done
