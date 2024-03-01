@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+echo "Speeding up video"
+ffmpeg -i "$1" -filter:v "setpts=0.8*PTS" "${1%.*}_faster.webm"
+
+echo "Generating palette"
+ffmpeg -y -i "$1" -vf palettegen palette.png
+
+echo "Converting to gif"
+ffmpeg -y -i "${1%.*}_faster.webm" -i palette.png -filter_complex paletteuse -r 10 "${1%.*}.gif"
+
+echo "Cleaning up files"
+rm palette.png "${1%.*}_faster.webm"
