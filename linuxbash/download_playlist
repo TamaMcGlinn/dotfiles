@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+yt-dlp --download-archive videos.txt "$1" -o '%(title)s.%(ext)s'
