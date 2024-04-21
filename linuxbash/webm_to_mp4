@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type f -name "*.webm" -exec ffmpeg -i {} -c:v libx264 -c:a aac -crf 30 {}.mp4 \;
