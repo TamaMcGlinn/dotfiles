@@ -1,2 +1,2 @@
 #!/bin/bash
-ffmpeg -i "$1" -vcodec libx265 -crf 35 "$1".compressed
+find . -type f -exec ffmpeg -i {} -c:v libx264 -c:a aac -crf 30 {}_small.mp4 \;
