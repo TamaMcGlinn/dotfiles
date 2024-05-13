@@ -82,6 +82,9 @@ fi
 
 # Install nerdfont
 mkdir -p ~/.local/share/fonts
-cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
+wget 'https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip' && unzip UbuntuMono.zip && mv UbuntuMono*.ttf ~/.local/share/fonts/ && rm LICENCE.txt LICENCE-FAQ.txt README.md UbuntuMono.zip 
 
 ./install_config_symlinks
+
+# cleanup
+rm -rf luarocks-3.8.0* lua-*.tar.gz package.json yarn.lock
