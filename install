@@ -38,6 +38,7 @@ custom_installers/forgit
 custom_installers/install_treesitter
 custom_installers/install_langservers
 custom_installers/mkproj
+custom_installers/setup_mold
 
 # install markdownfmt https://github.com/tianon/markdownfmt
 go install github.com/tianon/markdownfmt@latest
