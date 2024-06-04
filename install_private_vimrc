@@ -4,4 +4,6 @@
   # Install private vimrc
   cd ~
   git clone git@gitlab.com:Tama/private_vimrc
+  git clone git@gitlab.com:Tama/private_bin
+  echo "addpath -f -p PATH $HOME/private_bin" >> ~/.private_bashrc
 )

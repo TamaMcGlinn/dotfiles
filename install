@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # General stuff, including the requirements to build neovim
-sudo apt-get install -y curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse ruby python2 ripgrep ssh-askpass xournal net-tools tmux nnn git-review rename fd-find gifsicle
+sudo apt-get install -y curl make xclip git build-essential clang libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl exuberant-ctags cscope vim gparted pastebinit tree cgdb ruby silversearcher-ag lua5.3 gettext ninja-build subversion virtualenv python3.8-dev rubygems ruby-dev graphviz vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz exfat-fuse ruby python2 ripgrep ssh-askpass xournal net-tools tmux nnn git-review rename fd-find gifsicle freerdp2-x11 wkhtmltopdf
 
 # update nodejs
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
@@ -10,7 +10,7 @@ sudo apt-get install -y nodejs
 # Go needs snap install to support installing things
 sudo snap install go --classic
 
-pip3 install trash-cli gita openai
+pip3 install trash-cli gita openai markdown
 
 # vim-bible requirements
 sudo apt-get install -y diatheke sword-text-dutsvv sword-text-kjv
@@ -38,6 +38,7 @@ custom_installers/forgit
 custom_installers/install_treesitter
 custom_installers/install_langservers
 custom_installers/mkproj
+custom_installers/setup_mold
 
 # install markdownfmt https://github.com/tianon/markdownfmt
 go install github.com/tianon/markdownfmt@latest
@@ -82,6 +83,9 @@ fi
 
 # Install nerdfont
 mkdir -p ~/.local/share/fonts
-cp 'nerdfont/Ubuntu Mono Nerd Font Complete Mono.ttf' ~/.local/share/fonts/
+wget 'https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip' && unzip UbuntuMono.zip && mv UbuntuMono*.ttf ~/.local/share/fonts/ && rm LICENCE.txt LICENCE-FAQ.txt README.md UbuntuMono.zip 
 
 ./install_config_symlinks
+
+# cleanup
+rm -rf luarocks-3.8.0* lua-*.tar.gz package.json yarn.lock

@@ -8,6 +8,7 @@ CONFIGS = [
     "~/vimrc",
     "~/private_vimrc",
     "~/.config/mkproj/project_templates",
+    "~/private_bin",
 ]
 
 if __name__ == "__main__":

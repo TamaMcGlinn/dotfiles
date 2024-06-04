@@ -14,6 +14,7 @@ addpath -p PATH $HOME/code/python/submodule_bundler
 addpath -p PATH $HOME/.vim/plugged/vim-flog/bin
 addpath -p PATH $HOME/code/vimplugins/vim-flog/bin
 addpath -p PATH $HOME/code/ada/mkproj/bin
+addpath -p PATH $HOME/code/ada/mold/bin
 addpath -p PATH $HOME/go/bin
 
 addpath -f -p PKG_CONFIG_PATH ${HOME}/usr/local/lib/pkgconfig:
