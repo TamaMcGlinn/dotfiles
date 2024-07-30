@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-yt-dlp --audio-quality 6 -f mp4 -S +size,+br,+res,+fps  -o '%(title)s.%(ext)s' "$1"
+yt-dlp --sponsorblock-remove all --write-sub --write-auto-sub --audio-quality 6 -f mp4 -S +size,+br,+res,+fps  -o '%(title)s.%(ext)s' "$1"
