@@ -54,11 +54,11 @@ custom_installers/install_luarocks
 sudo luarocks install --server=https://luarocks.org/dev luaformatter
 custom_installers/install_lua_language_server
 
-# install docker
 sudo snap install docker
 
-# install git-delta
 cargo install git-delta
+
+cargo install tokei
 
 read -r -p "
 Install wemux?
