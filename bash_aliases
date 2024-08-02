@@ -1,6 +1,7 @@
 alias ul=ultralist
 alias grevm="git review --message"
-alias icat="kitty +kitten icat"
+alias icat="kitten icat"
+alias s='kitten ssh'
 alias unshallow="git fetch --unshallow"
 alias cdf='cd $(find * -type d | fzf)'
 alias browsh='docker run --rm -it browsh/browsh'
