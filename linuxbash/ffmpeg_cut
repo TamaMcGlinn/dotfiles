@@ -1,0 +1,4 @@
+#!/bin/bash
+SRC_FILE="$1"
+shift
+ffmpeg -i "$SRC_FILE" "$@" -c:v copy -c:a copy "${SRC_FILE%.*}2.mp4"
