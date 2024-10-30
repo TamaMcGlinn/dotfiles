@@ -205,3 +205,4 @@ source ~/dotfiles/custom_completers/*
 export WWW_HOME=https://www.duckduckgo.com/
 
 ulimit -c unlimited
+. "$HOME/.cargo/env"
