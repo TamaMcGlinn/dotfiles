@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+import os
+import argparse
+import deepl
+
+parser = argparse.ArgumentParser(
+    description="Translate file with DeepL"
+)
+
+parser.add_argument(
+    "filename",
+    metavar="filename",
+    type=str,
+    help="input file path",
+)
+parser.add_argument(
+    "target_lang",
+    metavar="target_lang",
+    type=str,
+    help="target language (default: NL)",
+    default="NL",
+    nargs='?'
+)
+
+args = parser.parse_args()
+input_path = args.filename
+prefix, extension = input_path.rsplit('.', 1)
+output_path = f"{prefix}_{args.target_lang.lower()}.{extension}"
+translator = deepl.Translator(os.environ["DEEPL_AUTH_KEY"])
+
+try:
+    translator.translate_document_from_filepath(
+        input_path,
+        output_path,
+        target_lang=args.target_lang,
+        formality="more"
+    )
+except deepl.DocumentTranslationException as error:
+    # If an error occurs during document translation after the document was
+    # already uploaded, a DocumentTranslationException is raised. The
+    # document_handle property contains the document handle that may be used to
+    # later retrieve the document from the server, or contact DeepL support.
+    doc_id = error.document_handle.id
+    doc_key = error.document_handle.key
+    print(f"Error after uploading ${error}, id: ${doc_id} key: ${doc_key}")
+except deepl.DeepLException as error:
+    # Errors during upload raise a DeepLException
+    print(error)
