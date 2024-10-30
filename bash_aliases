@@ -1,6 +1,7 @@
 alias ul=ultralist
 alias grevm="git review --message"
-alias icat="kitty +kitten icat"
+alias icat="kitten icat"
+alias s='kitten ssh'
 alias unshallow="git fetch --unshallow"
 alias cdf='cd $(find * -type d | fzf)'
 alias browsh='docker run --rm -it browsh/browsh'
@@ -121,4 +122,4 @@ testjson(){
 mkada() { mkproj project_templates/ada_gprbuild "$1"; cd "$1"; }
 mkbada() { mkproj project_templates/ada_bazel "$1"; cd "$1"; }
 mkcpp() { mkproj project_templates/cpp_makefile "$1"; cd "$1"; }
-mkvim() { mkproj project_templates/vimplugin "$1"; mv "$1" "vim-$1"; cd "vim-$1"; }
+mkvim() { mkproj project_templates/vimplugin "$1"; mv "$1" "$1"; cd "$1"; }

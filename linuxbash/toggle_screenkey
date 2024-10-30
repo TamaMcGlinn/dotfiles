@@ -1,0 +1,7 @@
+#!/bin/bash
+SCREENKEY_PID=$(pgrep screenkey)
+if [ -z "$SCREENKEY_PID" ]; then
+  screenkey -t 0.4 --key-mode composed --font-size small &
+else
+  kill -9 "$SCREENKEY_PID"
+fi
