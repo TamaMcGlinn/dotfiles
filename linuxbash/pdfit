@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+pdf_files=()
+
+for image in *.jpg; do
+    convert "$image" "${image%.jpg}.pdf"
+    pdf_files+=("${image%.jpg}.pdf")
+done
+
+pdftk *.pdf cat output combined.pdf
+
+for pdf_file in "${pdf_files[@]}"; do
+    rm "$pdf_file"
+done
