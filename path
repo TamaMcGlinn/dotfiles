@@ -16,6 +16,8 @@ addpath -p PATH $HOME/code/vimplugins/vim-flog/bin
 addpath -p PATH $HOME/code/ada/mkproj/bin
 addpath -p PATH $HOME/code/ada/mold/bin
 addpath -p PATH $HOME/go/bin
+addpath -p PATH "/opt/gnatstudio/bin"
+addpath -p PATH $HOME/code/ada/pico/picotool/build
 
 addpath -f -p PKG_CONFIG_PATH ${HOME}/usr/local/lib/pkgconfig:
 
