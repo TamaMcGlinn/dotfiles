@@ -8,5 +8,5 @@
   ln -fs ~/vimrc/vimrc.vim ~/.config/nvim/init.vim
 
   rm -rf ~/.config/nvim/UltiSnips
-  ln -s ~/vimrc/snippets ~/.config/nvim/UltiSnips
+  ln -s ~/vimrc/UltiSnips ~/.config/nvim/UltiSnips
 )

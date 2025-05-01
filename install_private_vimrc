@@ -6,4 +6,6 @@
   git clone git@gitlab.com:Tama/private_vimrc
   git clone git@gitlab.com:Tama/private_bin
   echo "addpath -f -p PATH $HOME/private_bin" >> ~/.private_bashrc
+  rm -rf ~/.config/nvim/PrivateUltiSnips
+  ln -s ~/private_vimrc/UltiSnips/ ~/.config/nvim/PrivateUltiSnips
 )
