@@ -206,3 +206,11 @@ export WWW_HOME=https://www.duckduckgo.com/
 
 ulimit -c unlimited
 . "$HOME/.cargo/env"
+
+# pnpm
+export PNPM_HOME="/home/s1000586/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
