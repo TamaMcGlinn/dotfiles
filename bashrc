@@ -164,8 +164,6 @@ source $HOME/dotfiles/linuxbash/git-completion.bash
 __git_complete g __git_main
 source $HOME/.bash_aliases
 
-export NVIM_LISTEN_ADDRESS=~/nvim_socket
-
 if [[ $SOURCED_BEFORE ]]; then
   if [[ -n "$TMUX" ]]; then
     if [[ $SOURCED_BEFORE_IN_TMUX ]]; then
