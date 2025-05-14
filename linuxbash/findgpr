@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+PROJECT="${1%.gpr}"
+OBJ_DIR=$(gprbuild -v "$1" | grep 'Changing to object directory of "'"$PROJECT" | sed 's/.*: "\([^"]*\)"/\1/')
+upfind_abs "$OBJ_DIR" -type f -name "$1"
