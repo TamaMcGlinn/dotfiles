@@ -1,10 +1,2 @@
 #!/usr/bin/env bash
-
-PROJECT="${1%.gpr}"
-BUILD_OUTPUT=$(gprbuild -v "$1")
-if [[ $? != 0 ]]; then
-  echo "Error: Unable to gprbuild $1"
-  exit 1
-fi
-OBJ_DIR=$(echo "$BUILD_OUTPUT" | grep 'Changing to object directory of "'"$PROJECT" | sed 's/.*: "\([^"]*\)"/\1/')
-upfind_abs "$OBJ_DIR" -type f -name "$1"
+gprinspect "$1" --display=json | jq -r '.tree."root-project".id' | sed 's/^<//'
