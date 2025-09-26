@@ -30,8 +30,6 @@ addpath -f -p LD_LIBRARY_PATH ${HOME}/usr/local/lib
 
 addpath -p GPR_PROJECT_PATH /usr/local/lib/gnat
 addpath -p GPR_PROJECT_PATH /home/tama/code/ada/adacore/libadalang
-addpath -p GPR_PROJECT_PATH /home/tama/opt/GNAT/2020/share/gpr
-addpath -p GPR_PROJECT_PATH /home/tama/opt/GNAT/2021/share/gpr
 addpath -p GPR_PROJECT_PATH /home/tama/code/ada/gnoga/src
 addpath -p GPR_PROJECT_PATH /home/tama/code/ada/gnoga
 addpath -p GPR_PROJECT_PATH /home/tama/code/ada/adacore/gtkada/src
