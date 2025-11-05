@@ -205,6 +205,9 @@ export WWW_HOME=https://www.duckduckgo.com/
 ulimit -c unlimited
 . "$HOME/.cargo/env"
 
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:${PATH}"
+
 # pnpm
 export PNPM_HOME="/home/s1000586/.local/share/pnpm"
 case ":$PATH:" in
