@@ -1,0 +1,4 @@
+#!/bin/bash
+INFILE=$1
+OUTFILE="${INFILE%.*}_compressed.${INFILE##*.}"
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$OUTFILE" "$INFILE"
