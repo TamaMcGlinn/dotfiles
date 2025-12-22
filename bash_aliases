@@ -41,6 +41,12 @@ alias t='tree'
 alias td='tree -L 2'
 alias tdd='tree -L 3'
 alias tddd='tree -L 4'
+alias tdddd='tree -L 5'
+alias tddddd='tree -L 6'
+alias tdddddd='tree -L 7'
+alias tddddddd='tree -L 8'
+alias tdddddddd='tree -L 9'
+alias tddddddddd='tree -L 10'
 alias abook='( cd ~/.abook; git pull; abook; git commit -am "automatic commit"; git push origin master; )'
 cscope() {
   git ls-files | sed 's_^\(.*\)$_\"\1\"_' > cscope.files
