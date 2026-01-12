@@ -1,26 +1,48 @@
 #!/bin/bash
 
-# based on https://stackoverflow.com/questions/17221481/fastest-way-to-create-animated-gifs-from-mp4
+# # based on https://stackoverflow.com/questions/17221481/fastest-way-to-create-animated-gifs-from-mp4
+#
+# # TODO check prerequisites are installed: mplayer, imagemagick's convert, and gifsicle
+# if ! [[ "$#" -eq 1 || "$#" -eq 2 ]]; then
+#   echo "Incorrect parameters"
+#   echo "Usage: ${0##*/} video_file [delay=7]"
+#   exit 1
+# fi
+#
+# DELAY=${2:-7}
+# OUT_GIF=${1%.*}.gif
+# TEMPDIR=$(mktemp -d)
+#
+# # Extract frames
+# mplayer -ao null -ss 0:00:00 -endpos 10 "$1" -vo jpeg:outdir=$TEMPDIR:quality=100
+#
+# # Convert each frame to a gif
+# for i in $TEMPDIR/*.jpg; do convert "$i" "${i%.jpg}.gif"; done
+#
+# # Put them into one looping gif
+# gifsicle --delay=$DELAY --color-method median-cut --optimize=03 --loop $TEMPDIR/*.gif > $OUT_GIF
+#
+# rm -r $TEMPDIR
 
-# TODO check prerequisites are installed: mplayer, imagemagick's convert, and gifsicle
-if ! [[ "$#" -eq 1 || "$#" -eq 2 ]]; then
+# based on https://www.mundanecode.com/posts/convert-webm-to-gif/
+
+if ! [[ "$#" -eq 1 ]]; then
   echo "Incorrect parameters"
-  echo "Usage: ${0##*/} video_file [delay=7]"
+  echo "Usage: ${0##*/} video_file"
   exit 1
 fi
 
-DELAY=${2:-7}
 OUT_GIF=${1%.*}.gif
-TEMPDIR=$(mktemp -d)
 
-# Extract frames
-mplayer -ao null -ss 0:00:00 -endpos 10 "$1" -vo jpeg:outdir=$TEMPDIR:quality=100
+# Generate palette for the given video:
+ffmpeg -y -i "$1" -vf palettegen palette.png
 
-# Convert each frame to a gif
-for i in $TEMPDIR/*.jpg; do convert "$i" "${i%.jpg}.gif"; done
+# Use palette to convert to out.gif
+ffmpeg -y -i "$1" -i palette.png -filter_complex paletteuse -r 10 out.gif
 
-# Put them into one looping gif
-gifsicle --delay=$DELAY --color-method median-cut --loop $TEMPDIR/*.gif > $OUT_GIF
+# Downscale 50%
+gifsicle --scale 0.5 out.gif -o "$OUT_GIF"
 
-rm -r $TEMPDIR
-
+# Clean up
+rm out.gif
+rm palette.png
