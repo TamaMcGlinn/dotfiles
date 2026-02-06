@@ -124,8 +124,13 @@ testjson(){
     python -c "import json;file = open('$1');json.loads(file.read());file.close()"
 }
 
-# mkproj shortcuts https://github.com/TamaMcGlinn/mkproj
-mkada() { mkproj project_templates/ada_gprbuild "$1"; cd "$1"; }
-mkbada() { mkproj project_templates/ada_bazel "$1"; cd "$1"; }
-mkcpp() { mkproj project_templates/cpp_makefile "$1"; cd "$1"; }
-mkvim() { mkproj project_templates/vimplugin "$1"; mv "$1" "$1"; cd "$1"; }
+# project shortcuts
+alias mkada='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_gprbuild'
+alias mkpico='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_pico'
+alias mkmakeada='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_makefile'
+alias mkunitada='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_gprbuild_unittested'
+
+# TODO transfer from mkproj: https://github.com/TamaMcGlinn/mkproj
+# mkbada() { mkproj project_templates/ada_bazel "$1"; cd "$1"; }
+# mkcpp() { mkproj project_templates/cpp_makefile "$1"; cd "$1"; }
+# mkvim() { mkproj project_templates/vimplugin "$1"; mv "$1" "$1"; cd "$1"; }
