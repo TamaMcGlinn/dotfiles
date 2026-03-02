@@ -125,12 +125,13 @@ testjson(){
 }
 
 # project shortcuts
-alias mkada='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_gprbuild'
-alias mkpico='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_pico'
-alias mkmakeada='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_makefile'
-alias mkunitada='cookiecutter gh:TamaMcGlinn/cookiecutter-ada_gprbuild_unittested'
+mkada() { cookiecutter gh:TamaMcGlinn/cookiecutter-ada_gprbuild                --no-input app_name=$1; cd "$1"; }
+mkpico() { cookiecutter gh:TamaMcGlinn/cookiecutter-ada_pico                   --no-input app_name=$1; cd "$1"; }
+mkmakeada() { cookiecutter gh:TamaMcGlinn/cookiecutter-ada_makefile            --no-input app_name=$1; cd "$1"; }
+mkunitada() { cookiecutter gh:TamaMcGlinn/cookiecutter-ada_gprbuild_unittested --no-input app_name=$1; cd "$1"; }
+mkcpp() { cookiecutter gh:TamaMcGlinn/cookiecutter-cpp_makefile                --no-input app_name=$1; cd "$1"; }
+mktemplate() { cookiecutter gh:TamaMcGlinn/cookiecutter-cookiecutter           --no-input app_name=$1; cd "$1"; }
 
 # TODO transfer from mkproj: https://github.com/TamaMcGlinn/mkproj
 # mkbada() { mkproj project_templates/ada_bazel "$1"; cd "$1"; }
-# mkcpp() { mkproj project_templates/cpp_makefile "$1"; cd "$1"; }
 # mkvim() { mkproj project_templates/vimplugin "$1"; mv "$1" "$1"; cd "$1"; }
