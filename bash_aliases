@@ -1,4 +1,5 @@
 alias ul=ultralist
+alias bb='./bazel.py build'
 alias grevm="git review --message"
 alias icat="kitten icat"
 alias s='kitten ssh'
