@@ -1,5 +1,8 @@
 alias ul=ultralist
+alias grr='git review && recheck'
 alias bb='./bazel.py build'
+alias bt='./bazel.py test'
+alias br='./bazel.py run'
 alias grevm="git review --message"
 alias icat="kitten icat"
 alias s='kitten ssh'
