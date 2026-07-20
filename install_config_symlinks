@@ -6,6 +6,7 @@ ln -fs ~/dotfiles/gtk-config.css ~/.config/gtk-3.0/gtk.css
 ln -fs ~/dotfiles/bashrc ~/.bashrc
 ln -fs ~/dotfiles/gitconfig ~/.gitconfig
 ln -fs ~/dotfiles/tigrc ~/.tigrc
+ln -fs ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 ln -fs ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -fs ~/dotfiles/muttrc/muttrc.muttrc ~/.muttrc
 ln -fs ~/dotfiles/cookiecutterrc ~/.cookiecutterrc
