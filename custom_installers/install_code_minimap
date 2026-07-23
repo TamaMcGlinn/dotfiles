@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+VERSION="0.6.8"
+wget https://github.com/wfxr/code-minimap/releases/download/v${VERSION}/code-minimap-musl_${VERSION}_amd64.deb
+sudo dpkg -i code-minimap-musl_${VERSION}_amd64.deb
+rm code-minimap-musl_${VERSION}_amd64.deb
