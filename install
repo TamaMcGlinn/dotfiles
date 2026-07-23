@@ -8,7 +8,7 @@ sudo apt-get install -y gettext ninja-build subversion virtualenv python3.8-dev 
 sudo apt-get install -y vlc python3-venv shellcheck libboost-dev cargo neovim python3-pip libx11-dev byzanz 
 sudo apt-get install -y exfat-fuse ruby ripgrep ssh-askpass xournal net-tools tmux nnn git-review 
 sudo apt-get install -y rename fd-find gifsicle freerdp2-x11 wkhtmltopdf cargo luarocks git-lfs
-sudo apt-get install -y trash-cli gita cookiecutter
+sudo apt-get install -y trash-cli gita cookiecutter pipx
 
 # update nodejs
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
@@ -38,6 +38,7 @@ dconf write /org/gnome/desktop/sound/event-sounds "false"
 
 custom_installers/get_fzf
 custom_installers/get_neovim
+custom_installers/neovim_remote
 custom_installers/get_alire
 custom_installers/forgit
 custom_installers/install_treesitter
