@@ -8,4 +8,5 @@
   echo "addpath -f -p PATH $HOME/private_bin" >> ~/.private_bashrc
   rm -rf ~/.config/nvim/PrivateUltiSnips
   ln -s ~/private_vimrc/UltiSnips/ ~/.config/nvim/PrivateUltiSnips
+  ln -s ~/private_vimrc/ssh_config ~/.ssh/config
 )
