@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+VERSION="2.9.1"
+wget https://github.com/coherentgraphics/cpdf-binaries/archive/refs/tags/v${VERSION}.zip -O cpdf.zip
+unzip cpdf.zip
+cp cpdf-binaries-${VERSION}/Linux-Intel-64bit/cpdf ~/.local/bin/
+rm cpdf.zip
+rm -r cpdf-binaries-${VERSION}/
