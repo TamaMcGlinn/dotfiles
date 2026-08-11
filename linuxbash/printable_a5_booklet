@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+outfile=${2:-"printable_a5.pdf"}
+
+pages=$(pdfinfo "$1" | awk '/^Pages:/ {print $2}')
+if (( pages % 4 != 0 )); then
+    echo "Error: booklet page count must be a multiple of 4 (got $pages)" >&2
+    exit 1
+fi
+
+order=()
+
+for ((i=0; i<pages/4; i++)); do
+    order+=(
+        $((pages - 2*i))
+        $((1 + 2*i))
+        $((2 + 2*i))
+        $((pages - 1 - 2*i))
+    )
+done
+
+# echo "${order[*]}"
+# pdftk "$1" cat 24 1 2 23 22 3 4 21 20 5 6 19 18 7 8 17 16 9 10 15 14 11 12 13 output printable_a5.pdf
+pdftk "$1" cat "${order[@]}" output "$outfile"
