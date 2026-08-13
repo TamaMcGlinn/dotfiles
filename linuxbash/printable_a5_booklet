@@ -1,14 +1,26 @@
 #!/usr/bin/env bash
+infile=${1}
 outfile=${2:-"printable_a5.pdf"}
 
-pages=$(pdfinfo "$1" | awk '/^Pages:/ {print $2}')
+pages=$(pdfinfo "$infile" | awk '/^Pages:/ {print $2}')
+blankpages=""
+cp "$infile" blank_appended_infile.pdf
 if (( pages % 4 != 0 )); then
-    echo "Error: booklet page count must be a multiple of 4 (got $pages)" >&2
-    exit 1
+    blankpages=$((4 - (pages % 4)))
+    echo "Warning: booklet must have multiple of 4 pages (got $pages), adding $blankpages blank pages at end" >&2
+    blank_page_spec=""
+    for ((i=0; i<blankpages; i++)); do
+      blank_page_spec+=" B1"
+    done
+    pages=$((pages + blankpages))
+    # for debugging:
+    # echo "Pages: $pages, blank_page_spec: $blank_page_spec"
+    # exit 1
 fi
+convert xc:none -page A4 blankpage.pdf
+pdftk "A=$infile" B=blankpage.pdf cat A1-end $blank_page_spec output blank_appended_infile.pdf
 
 order=()
-
 for ((i=0; i<pages/4; i++)); do
     order+=(
         $((pages - 2*i))
@@ -20,4 +32,5 @@ done
 
 # echo "${order[*]}"
 # pdftk "$1" cat 24 1 2 23 22 3 4 21 20 5 6 19 18 7 8 17 16 9 10 15 14 11 12 13 output printable_a5.pdf
-pdftk "$1" cat "${order[@]}" output "$outfile"
+pdftk blank_appended_infile.pdf cat "${order[@]}" output "$outfile"
+rm -rf blankpage.pdf blank_appended_infile.pdf
